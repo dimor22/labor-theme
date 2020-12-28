@@ -1,0 +1,29 @@
+msgid "Phone"
+msgstr "Teléfono"
+
+msgid "Please enter your phone number."
+msgstr "Por favor introduce tu número de teléfono."
+
+msgid "Teams"
+msgstr "Equipos"
+
+msgid "Team"
+msgstr "Equipo"
+
+msgid "New Team Name"
+msgstr "Nombre de Nuevo Equipo"
+
+msgid "Edit Team"
+msgstr "Edita Equipo"
+
+msgid "Projects"
+msgstr "Projectos"
+
+msgid "Project"
+msgstr "Projecto"
+
+msgid "New Project Name"
+msgstr "Nombre de Nuevo Projecto"
+
+msgid "Edit Project"
+msgstr "Edita Projecto"

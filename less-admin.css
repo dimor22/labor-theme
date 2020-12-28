@@ -1,0 +1,60 @@
+/* ===============================================
+ * HIDE UNNECESSARY DEFAULT WORDPRESS MENU LINKS
+ * ===============================================
+ */
+tr.user-rich-editing-wrap {
+    display: none;
+}
+
+tr.user-admin-color-wrap {
+    display: none;
+}
+
+tr.user-comment-shortcuts-wrap {
+    display: none;
+}
+
+tr.show-admin-bar.user-admin-bar-front-wrap {
+    display: none;
+}
+
+tr.user-sessions-wrap.hide-if-no-js {
+    display: none;
+}
+
+tr.user-url-wrap {
+    display: none;
+}
+
+tr.user-profile-picture {
+    display: none;
+}
+
+
+li#menu-comments {
+    display: none;
+}
+
+li#menu-pages {
+    display: none;
+}
+
+li#menu-posts {
+    display: none;
+}
+
+div#wpfooter {
+    display: none;
+}
+
+div#contextual-help-link-wrap {
+    display: none;
+}
+
+li#wp-admin-bar-wp-logo {
+    display: none !important;
+}
+
+li#toplevel_page_wpdatatables-administration {
+    display: none;
+}

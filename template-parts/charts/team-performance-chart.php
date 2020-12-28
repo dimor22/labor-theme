@@ -1,0 +1,1 @@
+<canvas id="team-performance-chart" width="400" height="400"></canvas>

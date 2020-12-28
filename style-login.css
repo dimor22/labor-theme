@@ -1,0 +1,40 @@
+body{
+    background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
+    color: white;
+}
+
+.login h1 a {
+    background-image: url(images/labor-logo-lg.png);
+    height: 206px;
+    width: 150px;
+}
+.login form{
+    background: transparent;
+    border: none;
+}
+.login #backtoblog a, .login #nav a {
+    color: #ffffff;
+}
+.login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
+    color: #f8bd33;
+}
+
+.login .button-primary,
+.login .button-primary.focus,
+.login .button-primary.hover,
+.login .button-primary:focus,
+.login .button-primary:hover {
+    background: #f4ab22;
+    border-color: #f4aa21;
+    color: #1c2027;
+}
+p.message {
+    color: black;
+}
+
+.login #login_error, .login .message, .login .success {
+    border-left: 4px solid #f4ab22;
+}
+#login_error {
+    color: black;
+}
