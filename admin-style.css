@@ -416,6 +416,20 @@ select#ure_select_other_roles {
     padding: .7em 1em 1em;
 }
 
+/* METABOX */
+
+#labor_tomorrows_plan_widget {
+    max-height: 482px;
+    overflow-y: scroll;
+}
+.tomorrows-plan .user-card {
+    display: flex;
+}
+
+.tomorrows-plan .user-card img {
+    margin-right: 16px;
+}
+
 @media screen and (max-width: 782px){
     .auto-fold #adminmenu a.menu-top {
         height: 45px;

@@ -9,6 +9,7 @@ function my_custom_dashboard_widgets() {
 
     wp_add_dashboard_widget( 'labor_projects_completion_widget', '&#187; Project Completion', 'labor_projects_completion' );
     wp_add_dashboard_widget( 'labor_team_performance_widget', '&#187; Team Performance', 'labor_team_performance' );
+    wp_add_dashboard_widget( 'labor_tomorrows_plan_widget', '&#187; Tomorrow\'s Plan Feed', 'labor_tomorrows_plan' );
 }
 
 function labor_projects_completion() {
@@ -42,20 +43,42 @@ function labor_projects_completion() {
 function labor_team_performance() {
 
     // get team ids
-    $teams_obj = get_posts(['post_type' => 'teams', 'numberposts' => -1]);
+    $team_posts = get_posts([
+            'post_type' => 'teams',
+            'status'    => 'published',
+            'numberposts' => -1
+    ]);
 
-    $chart['labels'][] = ''; // team names
-    $chart['values'][] = ''; // team average points
+    $chart['labels'] = []; // team names
+    $chart['values'] = []; // team average points
 
-    foreach ($teams_obj as $team) {
+    foreach ($team_posts as $team_post) {
+
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . 'team_reports';
+
+        $query = "SELECT date, team_name, points FROM $table_name WHERE team_id = '{$team_post->ID}'";
+
+        $teams = $wpdb->get_results($query, 'OBJECT');
+
         // get team post_meta
-        $chart['labels'][] = $team->post_name;
-        $team_meta = get_post_meta( $team->ID, LABOR_Json_Tables::$team_report_key );
+
+
+        $chart['labels'][] = $team_post->post_title;
+        //$team_meta = get_post_meta( $team->ID, LABOR_Json_Tables::$team_report_key );
         $points = 0;
-        foreach ($team_meta as $meta) {
-            $points += $meta['points'];
+        foreach ($teams as $team_data) {
+            $points += $team_data->points;
         }
-        $chart['values'][] = $points / count($team_meta);
+
+        if ( $points > count($teams) ) {
+            $chart['values'][] = $points / count($teams);
+        } else {
+            $chart['values'][] = 0;
+        }
+
+
     }
 
     ?>
@@ -69,17 +92,37 @@ function labor_team_performance() {
     wp_reset_postdata();
 }
 
-function get_team_data( $team_id ) {
-    $data = [];
+function labor_tomorrows_plan() {
+    global $wpdb;
 
-    $res = get_post_meta( $team_id, LABOR_Json_Tables::$team_report_key );
+    $table_name = $wpdb->prefix . 'daily_reports';
 
-    foreach ($res as $meta) {
-        $data['labels'][] = $meta['date'];
-        $data['data'][] = number_format($meta['points']);
-    }
+    $query = "SELECT date, foreman_id, foreman_name, tomorrows_plan FROM $table_name ORDER BY date DESC LIMIT 30";
 
-    return $data;
+    $daily_report = $wpdb->get_results($query, 'OBJECT');
+
+    ?>
+    <ul>
+        <?php foreach ($daily_report as $report) :
+            $user_img = get_avatar_url($report->foreman_id);
+        ?>
+
+        <li class="tomorrows-plan">
+            <div class="user-card">
+                <img src="<?php echo $user_img;?>" alt="<?php echo $report->foreman_name;?> Photo">
+                <div class="user-card-info">
+                    <h4><?php echo $report->foreman_name;?></h4>
+                    <time datetime="<?php echo $report->date;?>"><?php echo $report->date;?></time>
+                </div>
+            </div>
+            <p><?php echo ( strlen($report->tomorrows_plan) > 0 ) ? $report->tomorrows_plan : '<span style="color:red;">Nothing reported.</span>';
+            ?></p>
+        </li>
+            <hr>
+        <?php endforeach;?>
+    </ul>
+
+    <?php
 }
 
 function get_project_data( $project_id ) {
@@ -126,12 +169,23 @@ function project_progress_meta_box() {
     );
 }
 function project_progress_callback( $post ) {
-    $project_data = get_project_data( $post->ID);
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . 'project_reports';
+
+    $query = "SELECT * FROM $table_name WHERE project_id = '{$post->ID}'";
+
+    $projects = $wpdb->get_results($query, 'OBJECT');
+
+    foreach ($projects as $project_data) {
+        $chart['labels'][] = $project_data->date;
+        $chart['values'][] =  $project_data->percent;
+    }
     ?>
 
     <canvas
         id="meta-box-project-progress-chart"
-        data-chart-data='<?php echo json_encode($project_data);?>'
+        data-chart-data='<?php echo json_encode($chart);?>'
         width="400"
         height="400">
 
@@ -155,13 +209,31 @@ function team_performance_meta_box() {
     );
 }
 
-// TODO: Review this, not working good
 function team_performance_callback( $post ) {
 
-    $team_data = get_team_data( $post->ID);
+    global $wpdb;
 
-    wp_add_inline_script('chart-js', 'var teamChartData = ' . json_encode( $team_data ) . ';', 'after');
+    $table_name = $wpdb->prefix . 'team_reports';
 
-    get_template_part( 'template-parts/charts/team-performance-chart' );
+    $query = "SELECT * FROM $table_name WHERE team_id = '{$post->ID}'";
+
+    $teams = $wpdb->get_results($query, 'OBJECT');
+
+
+
+    //$team_meta = get_post_meta( $team->ID, LABOR_Json_Tables::$team_report_key );
+    $points = 0;
+    foreach ($teams as $team_data) {
+        $chart['labels'][] = $team_data->date;
+        $chart['values'][] =  $team_data->points;
+    }
+    ?>
+
+    <canvas id="team-performance-chart"
+            data-chart-data='<?php echo json_encode($chart); ?>'
+            width="400"
+            height="400"></canvas>
+
+<?php
 }
 add_action( 'add_meta_boxes_teams', 'team_performance_meta_box' );

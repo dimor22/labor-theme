@@ -8,13 +8,14 @@
   var progressChartEle = $('#project-progress-chart');
 
   if ( teamPerformanceEle.length > 0 ) {
+    var data = teamPerformanceEle.data('chart-data');
     var teamPerformance = new Chart(teamPerformanceEle, {
       type: 'line',
       data: {
-        labels: teamChartData.labels, // comes from functions.php
+        labels: data.labels, // comes from functions.php
         datasets: [{
           label: 'Team Points Per Day Worked',
-          data: teamChartData.data, // comes from functions.php
+          data: data.values, // comes from functions.php
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
