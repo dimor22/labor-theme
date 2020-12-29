@@ -29,6 +29,7 @@
 /** HEADER **/
 .site-header {
     background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
+    padding: 1em;
 }
 
 /** LEARN PRESS **/

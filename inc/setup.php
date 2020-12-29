@@ -18,7 +18,7 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
  */
 function load_admin_scripts() {
     wp_enqueue_style('animate-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css');
-    wp_enqueue_style( 'labor-swipe-css', 'https://unpkg.com/swiper/css/swiper.min.css' );
+    wp_enqueue_style( 'labor-swipe-css', 'https://unpkg.com/swiper/swiper-bundle.min.css' );
     wp_enqueue_style( 'labor-admin-css', get_stylesheet_directory_uri() . '/admin-style.css', false, '1.0.0' );
 
     // Check anyone < ADMIN
@@ -26,7 +26,7 @@ function load_admin_scripts() {
         wp_enqueue_style( 'cleanup-admin-css', get_stylesheet_directory_uri() . '/less-admin.css', false, '1.0.0' );
     }
 
-    wp_enqueue_script( 'labor-swiper-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js', [ 'jquery' ], '', true );
+    wp_enqueue_script( 'labor-swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', [ 'jquery' ], '', true );
     wp_enqueue_script( 'labor-numeral', '//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js', [ 'jquery' ], '', true );
     wp_enqueue_script( 'chart-js', 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js', '', '', true );
     wp_enqueue_script( 'chart-dashboard', get_stylesheet_directory_uri() . '/js/dashboard-charts.js', '', '', true );
