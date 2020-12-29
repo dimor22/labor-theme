@@ -103,27 +103,25 @@ function get_user_behavior( $user_id ) {
     $data['leadership'] = [];
     $data['trust'] = [];
 
-    $query = "SELECT * FROM `wp_usermeta` WHERE `user_id` = %d AND `meta_key` = %s";
-    $user_meta = $wpdb->get_results($wpdb->prepare($query, $user_id, 'worker_daily_form'));
+    $table_name = $wpdb->prefix . 'user_reports';
+    $query = "SELECT * FROM $table_name WHERE `user_id` = %d";
+    $user_meta = $wpdb->get_results($wpdb->prepare($query, $user_id), 'OBJECT');
 
     if ( ! empty($user_meta) ) {
-        foreach ($user_meta as $row) {
-            $reports[] = maybe_unserialize($row->meta_value);
+        foreach ($user_meta as $meta) {
+            $data['safety']['labels'][]       = $meta->date;
+            $data['safety']['values'][]       = $meta->safety;
+
+            $data['quality']['labels'][]       = $meta->date;
+            $data['quality']['values'][]       = $meta->quality;
+
+            $data['leadership']['labels'][]    = $meta->date;
+            $data['leadership']['values'][]    = $meta->leadership;
+
+            $data['trust']['labels'][]          = $meta->date;
+            $data['trust']['values'][]          = $meta->trust;
         }
 
-        foreach ($reports as $meta) {
-            $data['safety']['labels'][]       = $meta['date'];
-            $data['safety']['values'][]       = $meta['safety'];
-
-            $data['quality']['labels'][]       = $meta['date'];
-            $data['quality']['values'][]       = $meta['quality'];
-
-            $data['leadership']['labels'][]    = $meta['date'];
-            $data['leadership']['values'][]    = $meta['leadership'];
-
-            $data['trust']['labels'][]          = $meta['date'];
-            $data['trust']['values'][]          = $meta['trust'];
-        }
         return json_encode($data);
     }
 
@@ -135,19 +133,17 @@ function get_user_performance($user_id){
 
     $user_performance_value = 0;
     $total_points = 0;
-    $points = [];
-    $query = "SELECT * FROM `wp_usermeta` WHERE `user_id` = %d AND `meta_key` = %s";
-    $user_meta = $wpdb->get_results($wpdb->prepare($query, $user_id, 'worker_daily_form'));
+    $table_name = $wpdb->prefix . 'user_reports';
+    $query = "SELECT * FROM $table_name WHERE `user_id` = %d";
+    $user_meta = $wpdb->get_results($wpdb->prepare($query, $user_id), 'OBJECT');
+
 
     if ( ! empty($user_meta) ) {
-        foreach ($user_meta as $row) {
-            $reports[] = maybe_unserialize($row->meta_value);
+        
+        foreach ($user_meta as $meta) {
+            $total_points += $meta->points;
         }
-        foreach ($reports as $meta) {
-            $points[] = $meta['points'];
-            $total_points += $meta['points'];
-        }
-        return $user_performance_value = floor($total_points / count($reports));
+        return floor($total_points / count($user_meta));
     }
     return $user_performance_value;
 }

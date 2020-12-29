@@ -278,9 +278,9 @@
 
     function isNoteAdded( className ) {
       const $checkBox = $('.swiper-slide.swiper-slide-active').find(className + ':checked');
-      var safetyVal = $checkBox.val();
+      let safetyVal = $checkBox.val();
       if ( safetyVal == '1' || safetyVal == '5') {
-        var noteVal = $checkBox.parents('.js-behavior-list').siblings('textarea').val();
+        let noteVal = $checkBox.parents('.js-behavior-list').siblings('textarea').val();
         if ( noteVal == '' ) {
           return false;
         }
@@ -289,9 +289,9 @@
     }
 
     function isCheckedAndNoteAdded( fieldName ){
-      var className = '.user-' + fieldName + '-field';
-      var isChecked = isRadioSelected( className );
-      var addedNote = isNoteAdded( className );
+      let className = '.user-' + fieldName + '-field';
+      let isChecked = isRadioSelected( className );
+      let addedNote = isNoteAdded( className );
       if ( validate && ! isChecked ){
         stopShowError( 'Please check ' + fieldName.toUpperCase() +' Rating.' );
       }
@@ -301,11 +301,11 @@
     }
 
     //initialize swiper when document ready
-    var projectTeamId = '';
-    var teamPoints = 0;
-    var teamPointsNoFormat = 0;
+    let projectTeamId = '';
+    let teamPoints = 0;
+    let teamPointsNoFormat = 0;
 
-    var swiper = new Swiper('.swiper-container', {
+    let swiper = new Swiper('.swiper-container', {
       allowTouchMove: false,
       simulateTouch: false,
       pagination: {
@@ -318,19 +318,19 @@
           console.log('total slides: ' + _.size(this.slides));
 
           function getProjectInfo() {
-            var projectPoints = $('#project-input').children("option:selected").data('project-points');
-            var projectPercent = $('#project-input').children("option:selected").data('project-percent');
+            let projectPoints = $('#project-input').children("option:selected").data('project-points');
+            let projectPercent = $('#project-input').children("option:selected").data('project-percent');
             projectTeamId = $('#project-input').children("option:selected").data('team-id');
             $('#js-form-team-id').val(projectTeamId);
 
-            var points = numeral(projectPoints);
+            let points = numeral(projectPoints);
             $('#js-project-points').text(points.format());
             $('#js-project-points').attr('data-points', projectPoints);
             $('#js-project-percent').width(projectPercent + '%');
             $('#js-project-percent').text(projectPercent + '%');
             $('#js-project-percent').attr('data-project-percent', projectPercent);
 
-            var dailyMax = 100 - projectPercent;
+            let dailyMax = 100 - projectPercent;
 
             $('#percentage-completed').attr("placeholder", "less or equal to "+ dailyMax +"%");
           }
@@ -391,7 +391,7 @@
       // VALIDATE ASSIGNED POINTS > 0
       if (validate && $('.swiper-slide.swiper-slide-active').find('.daily-points').length > 0 ){
 
-        var activeSlidePointsValue = $('.swiper-slide.swiper-slide-active').find('.daily-points input').val();
+        let activeSlidePointsValue = $('.swiper-slide.swiper-slide-active').find('.daily-points input').val();
         if ( activeSlidePointsValue == 0 || activeSlidePointsValue === '' ) {
           stopShowError( 'Please assign some points.' )
         }
@@ -504,7 +504,7 @@
     $('.worker-of-the-day').on('click', 'li', function() {
       errors = [];
       $('#js-workers-error-message').css('visibility', 'hidden');
-      var user = $(this);
+      let user = $(this);
       user.toggleClass('selected');
       var userId = user.data('user-id');
       var userName = user.data('user-name');
@@ -512,7 +512,7 @@
 
       // check that the user has been selected previously if it has, remove it
       if ( _.findIndex(selectedWorkers, function(worker) { return worker.id === userId }) > -1 ) {
-        var arrayKeyRemove =_.findKey(selectedWorkers, function(o) {
+        let arrayKeyRemove =_.findKey(selectedWorkers, function(o) {
           return o.id === userId;
         })
         _.pullAt(selectedWorkers, arrayKeyRemove);
@@ -537,8 +537,8 @@
      * SELECT ALL USERS
      */
     $('#js-select-all-workers').click(function () {
-      var userElements = $('.worker-of-the-day li');
-      var btnState = $(this).attr('data-state');
+      let userElements = $('.worker-of-the-day li');
+      let btnState = $(this).attr('data-state');
 
       if ( btnState === 'not-pressed') {
         userElements.addClass('selected');
@@ -587,7 +587,7 @@
     //   // RETURN EARLY IF SUBMITTED BEFORE THE LAST SLIDE
     //   if ( !swiper.isEnd ) { return; }
     //
-    //   var form = $(this).closest('form').serializeArray();
+    //   let form = $(this).closest('form').serializeArray();
     //
     //   console.log(form);
     //
@@ -629,13 +629,13 @@
       // RETURN EARLY IF SUBMITTED BEFORE THE LAST SLIDE
       if ( !swiper.isEnd ) { return; }
 
-      var fields = $(this).serializeArray();
+      let fields = $(this).serializeArray();
       console.log(fields);
 
       // find out how many users are being submitted
       // required label name "user_field_x[user-id]"
       // other user related label names use same name convention "user_field_x[safety]", etc
-      var userPrefixes = [];
+      let userPrefixes = [];
       _.forEach(fields, function (field) {
         if ( field.name.indexOf("user-id") > 0 ) {
           userPrefixes.push( _.truncate(field.name, { 'length' : 14,'separator' : '[', 'omission' : ''}) );
@@ -644,11 +644,11 @@
       console.log({'user prefixes' : userPrefixes});
 
       // create empty radio button field names for validation
-      var ratings = ['quality', 'leadership', 'trust', 'safety'];
-      var radioFieldNames = [];
+      let ratings = ['quality', 'leadership', 'trust', 'safety'];
+      let radioFieldNames = [];
 
       _.forEach(userPrefixes, function (prefix) {
-        var editedNames = [];
+        let editedNames = [];
         editedNames = _.map(ratings, function (ratingName) {
           return `${prefix}[${ratingName}]`;
         });
@@ -665,7 +665,7 @@
       console.log({'all fields':fields});
 
       // validate inputs
-      var errors = [];
+      let errors = [];
       $(fields).each(function (index, element) {
         if (element.value === '') {
           errors.push({ele: element.name, message: 'is empty'});
@@ -769,19 +769,19 @@
      * USER SKILLS CHART
      */
     // User Skill Chart
-    var userSkillChartEle = $('#user-skills-chart');
+    let userSkillChartEle = $('#user-skills-chart');
     if ( userSkillChartEle.length > 0 ) {
 
       const options = userSkillChartEle.data('options');
 
-      var newLabels = [];
-      var newValues = [];
+      let newLabels = [];
+      let newValues = [];
 
       _.each(options, function (value, key) {
         newLabels.push(key);
         newValues.push(value);
       })
-      var userSkillChart = new Chart(userSkillChartEle, {
+      let userSkillChart = new Chart(userSkillChartEle, {
         // The type of chart we want to create
         type: 'radar',
         // The data for our dataset
@@ -814,9 +814,9 @@
     /**
      * USER PERFORMANCE GAUGE
      */
-    var userPerformanceEle = $('#user-performance-gauge');
+    let userPerformanceEle = $('#user-performance-gauge');
     if ( userPerformanceEle.length > 0 ) {
-      var userPerformanceValue = userPerformanceEle.data('value');
+      let userPerformanceValue = userPerformanceEle.data('value');
       if (
           ( ! _.isNumber(userPerformanceValue) )
           || ( userPerformanceValue < 0 )
@@ -824,7 +824,7 @@
         userPerformanceValue = 0;
       }
       console.log('valvue ' + userPerformanceValue);
-      var userPerformanceGauge = new RadialGauge({
+      let userPerformanceGauge = new RadialGauge({
         renderTo: 'user-performance-gauge',
         width: 300,
         height: 300,
@@ -873,10 +873,10 @@
       var userBehaviourChartData = $('.profile-behavior-card').data('behavior-data');
     }
 
-    var userBehaviorSafetyChartEle = $('#user-behavior-chart-safety');
+    let userBehaviorSafetyChartEle = $('#user-behavior-chart-safety');
     if ( userBehaviorSafetyChartEle.length > 0 ) {
 
-      var userBehaviorSafetyChart = new Chart(userBehaviorSafetyChartEle, {
+      let userBehaviorSafetyChart = new Chart(userBehaviorSafetyChartEle, {
         // The type of chart we want to create
         type: 'line',
         // The data for our dataset
@@ -894,10 +894,10 @@
       });
     }
 
-    var userBehaviorQualityChartEle = $('#user-behavior-chart-quality');
+    let userBehaviorQualityChartEle = $('#user-behavior-chart-quality');
     if ( userBehaviorQualityChartEle.length > 0 ) {
 
-      var userBehaviorQualityChart = new Chart(userBehaviorQualityChartEle, {
+      let userBehaviorQualityChart = new Chart(userBehaviorQualityChartEle, {
         // The type of chart we want to create
         type: 'line',
         // The data for our dataset
@@ -915,10 +915,10 @@
       });
     }
 
-    var userBehaviorLeadershipChartEle = $('#user-behavior-chart-leadership');
+    let userBehaviorLeadershipChartEle = $('#user-behavior-chart-leadership');
     if ( userBehaviorLeadershipChartEle.length > 0 ) {
 
-      var userBehaviorLeadershipChart = new Chart(userBehaviorLeadershipChartEle, {
+      let userBehaviorLeadershipChart = new Chart(userBehaviorLeadershipChartEle, {
         // The type of chart we want to create
         type: 'line',
         // The data for our dataset
@@ -936,10 +936,10 @@
       });
     }
 
-    var userBehaviorTrustChartEle = $('#user-behavior-chart-trust');
+    let userBehaviorTrustChartEle = $('#user-behavior-chart-trust');
     if ( userBehaviorTrustChartEle.length > 0 ) {
 
-      var userBehaviorTrustChart = new Chart(userBehaviorTrustChartEle, {
+      let userBehaviorTrustChart = new Chart(userBehaviorTrustChartEle, {
         // The type of chart we want to create
         type: 'line',
         // The data for our dataset
@@ -963,10 +963,10 @@
      */
 
     // PROJECT PROGRESS
-    var dashboardProjectChartEle = $('#dashboard-project-progress-chart');
+    let dashboardProjectChartEle = $('#dashboard-project-progress-chart');
     if ( dashboardProjectChartEle.length > 0 ) {
-      var data = dashboardProjectChartEle.data('chart-data');
-      var dashboardProjectChart = new Chart(dashboardProjectChartEle, {
+      let data = dashboardProjectChartEle.data('chart-data');
+      let dashboardProjectChart = new Chart(dashboardProjectChartEle, {
         type: 'horizontalBar',
         data: {
           labels: data.labels,
@@ -1001,16 +1001,16 @@
     }
     
     // TEAM PERFORMANCE
-    var dashboardTEamChartEle = $('#dashboard-team-performance-chart');
+    let dashboardTEamChartEle = $('#dashboard-team-performance-chart');
     if ( dashboardTEamChartEle.length > 0 ) {
-      var data = dashboardTEamChartEle.data('chart-data');
-      var dashboardTEamChart = new Chart(dashboardTEamChartEle, {
+      let data = dashboardTEamChartEle.data('chart-data');
+      let dashboardTEamChart = new Chart(dashboardTEamChartEle, {
         type: 'bar',
         data: {
-          labels: ['Team 1', 'Team 2', 'Team 3'],
+          labels: data.labels,
           datasets: [{
             label: 'Average Points Per Team',
-            data: ['80', '100', '120'],
+            data: data.values,
             backgroundColor:
                 'rgba(235, 146, 52, .5)',
             borderColor: 'rgba(235, 146, 52, 1)',
@@ -1043,10 +1043,10 @@
      */
     
     // PROJECT PROGRESS
-    var metaBoxProjectChartEle = $('#meta-box-project-progress-chart');
+    let metaBoxProjectChartEle = $('#meta-box-project-progress-chart');
     if ( metaBoxProjectChartEle.length > 0 ) {
-      var data = metaBoxProjectChartEle.data('chart-data');
-      var metaBoxProjectChart = new Chart(metaBoxProjectChartEle, {
+      let data = metaBoxProjectChartEle.data('chart-data');
+      let metaBoxProjectChart = new Chart(metaBoxProjectChartEle, {
         // The type of chart we want to create
         type: 'line',
         // The data for our dataset
@@ -1063,6 +1063,9 @@
         }
       });
     }
+
+
+
 
     /**
      * ADD NOTES TO BEHAVIOUR SECTION

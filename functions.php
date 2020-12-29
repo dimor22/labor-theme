@@ -6,7 +6,8 @@ $includes = [
     'inc/daily-foreman-form.php',
     'inc/login-page.php',
     'inc/new-admin-pages.php',
-    'inc/meta-boxes.php'
+    'inc/meta-boxes.php',
+    'inc/acf-config.php'
 
 ];
 

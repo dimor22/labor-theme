@@ -13,96 +13,96 @@
  * @return array
  */
 
-//class LABOR_Json_Tables {
-//    public $daily_report_post_type     = 'daily_reports';
-//    public static $daily_report_key    = 'daily_report_form';
-//    public $daily_report_path          = '';
+class LABOR_Json_Tables {
+    public $daily_report_post_type     = 'daily_reports';
+    public static $daily_report_key    = 'daily_report_form';
+    public $daily_report_path          = '';
+
+    public $team_report_post_type      = 'teams';
+    public static $team_report_key     = 'team_daily_form';
+    public $team_report_path           = '';
+
+    public $project_report_post_type   = 'projects';
+    public static $project_report_key  = 'project_daily_form';
+    public $project_report_path        = '';
+
+    public $user_report_post_type      = 'user';
+    public static $user_report_key     = 'worker_daily_form';
+    public $user_report_path           = '';
+
+    public function __construct()
+    {
+        $document_root = $_SERVER['DOCUMENT_ROOT'];
+        $this->daily_report_path    = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/daily-report.json';
+        $this->team_report_path     = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/team-report.json';
+        $this->project_report_path  = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/project-report.json';
+        $this->user_report_path     = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/user-report.json';
+    }
+
+    public function generate_json_table($post_type, $key, $path) {
+        global $wpdb;
+        $reports = [];
+
+        if ($post_type === 'user') {
+            $query = "SELECT *  FROM `wp_usermeta` WHERE `meta_key` = %s ORDER BY `umeta_id`  DESC";
+            $user_meta = $wpdb->get_results($wpdb->prepare($query, 'worker_daily_form'));
+            foreach ($user_meta as $row) {
+                $reports[] = maybe_unserialize($row->meta_value);
+            }
+        } else {
+//        $posts = get_posts( ['numberposts' => -1, 'post_type' => $post_type, 'meta_key' => $key] );
 //
-//    public $team_report_post_type      = 'teams';
-//    public static $team_report_key     = 'team_daily_form';
-//    public $team_report_path           = '';
-//
-//    public $project_report_post_type   = 'projects';
-//    public static $project_report_key  = 'project_daily_form';
-//    public $project_report_path        = '';
-//
-//    public $user_report_post_type      = 'user';
-//    public static $user_report_key     = 'worker_daily_form';
-//    public $user_report_path           = '';
-//
-//    public function __construct()
-//    {
-//        $document_root = $_SERVER['DOCUMENT_ROOT'];
-//        $this->daily_report_path    = $document_root . '/wp-content/themes/labor/template-parts/json-tables/daily-report.json';
-//        $this->team_report_path     = $document_root . '/wp-content/themes/labor/template-parts/json-tables/team-report.json';
-//        $this->project_report_path  = $document_root . '/wp-content/themes/labor/template-parts/json-tables/project-report.json';
-//        $this->user_report_path     = $document_root . '/wp-content/themes/labor/template-parts/json-tables/user-report.json';
-//    }
-//
-//    public function generate_json_table($post_type, $key, $path) {
-//        global $wpdb;
-//        $reports = [];
-//
-//        if ($post_type === 'user') {
-//            $query = "SELECT *  FROM `wp_usermeta` WHERE `meta_key` = %s ORDER BY `umeta_id`  DESC";
-//            $user_meta = $wpdb->get_results($wpdb->prepare($query, 'worker_daily_form'));
-//            foreach ($user_meta as $row) {
-//                $reports[] = maybe_unserialize($row->meta_value);
-//            }
-//        } else {
-////        $posts = get_posts( ['numberposts' => -1, 'post_type' => $post_type, 'meta_key' => $key] );
-////
-////        foreach ( $posts as $post_row ) {
-////            $reports[] = get_post_meta( $post_row->ID, $key, true );
-////        }
-//            $query = "SELECT *  FROM `wp_postmeta` WHERE `meta_key` = %s ORDER BY `meta_id`  DESC";
-//            $post_meta = $wpdb->get_results($wpdb->prepare($query, $key));
-//            foreach ($post_meta as $row) {
-//                $reports[] = maybe_unserialize($row->meta_value);
-//            }
+//        foreach ( $posts as $post_row ) {
+//            $reports[] = get_post_meta( $post_row->ID, $key, true );
 //        }
-//
-//        if ( $fp = fopen( $path, 'w' ) ) {
-//            if ( fwrite( $fp, json_encode( $reports ) ) ) {
-//                if ( false === fclose( $fp ) ){
-//                    error_log("Failed to close json file for $post_type.", 0);
-//                }
-//            } else {
-//                error_log("Failed to write json file for $post_type.", 0);
-//            }
-//
-//        } else {
-//            error_log("Failed to open json file for $post_type", 0);
-//        }
-//
-//
-//    }
-//
-//    public function create_daily_report_json_tables(){
-//
-//
-//        $this->generate_json_table(
-//            $this->daily_report_post_type,
-//            self::$daily_report_key,
-//            $this->daily_report_path);
-//
-//        $this->generate_json_table(
-//            $this->team_report_post_type,
-//            self::$team_report_key,
-//            $this->team_report_path);
-//
-//        $this->generate_json_table(
-//            $this->project_report_post_type,
-//            self::$project_report_key,
-//            $this->project_report_path);
-//
-//        $this->generate_json_table(
-//            $this->user_report_post_type,
-//            self::$user_report_key,
-//            $this->user_report_path);
-//    }
-//
-//}
+            $query = "SELECT *  FROM `wp_postmeta` WHERE `meta_key` = %s ORDER BY `meta_id`  DESC";
+            $post_meta = $wpdb->get_results($wpdb->prepare($query, $key));
+            foreach ($post_meta as $row) {
+                $reports[] = maybe_unserialize($row->meta_value);
+            }
+        }
+
+        if ( $fp = fopen( $path, 'w' ) ) {
+            if ( fwrite( $fp, json_encode( $reports ) ) ) {
+                if ( false === fclose( $fp ) ){
+                    error_log("Failed to close json file for $post_type.", 0);
+                }
+            } else {
+                error_log("Failed to write json file for $post_type.", 0);
+            }
+
+        } else {
+            error_log("Failed to open json file for $post_type", 0);
+        }
+
+
+    }
+
+    public function create_daily_report_json_tables(){
+
+
+        $this->generate_json_table(
+            $this->daily_report_post_type,
+            self::$daily_report_key,
+            $this->daily_report_path);
+
+        $this->generate_json_table(
+            $this->team_report_post_type,
+            self::$team_report_key,
+            $this->team_report_path);
+
+        $this->generate_json_table(
+            $this->project_report_post_type,
+            self::$project_report_key,
+            $this->project_report_path);
+
+        $this->generate_json_table(
+            $this->user_report_post_type,
+            self::$user_report_key,
+            $this->user_report_path);
+    }
+
+}
 function break_time( $break, $lunch ) {
     $break_time  = $break;
     $lunch_time  = $lunch;
@@ -174,11 +174,12 @@ function cal_hours_worked( $start, $finish ) {
 
 function foreman_daily_form_func() {
 
-    $form = $_REQUEST['payload'];
+    global $wpdb;
 
-    $fd     = []; // form data
-    $errors = [];
-    $time   = time();
+    $form       = $_REQUEST['payload'];
+    $fd         = []; // form data
+    $errors     = [];
+    $date_time  = current_time( 'mysql');
 
     foreach ( $form['formData'] as $field ) {
         $fd[ $field['name'] ] = $field['value'];
@@ -244,7 +245,7 @@ function foreman_daily_form_func() {
         $foreman = get_field( 'labor_select_foreman', $fd['team-id'] );
 
         $data = [
-            'date'              => date( 'm-d-Y', $time ),
+            'date'              => $date_time,
             'project-id'        => $fd['project-id'],
             'project-name'      => get_the_title( $fd['project-id'] ),
             'team-id'           => $fd['team-id'],
@@ -252,7 +253,30 @@ function foreman_daily_form_func() {
             'progress'          => number_format($fd['percentage-completed']),
             'points'            => number_format($fd['team-points'])
         ];
-        add_post_meta( $fd['project-id'], 'project_daily_form', $data );
+
+
+        // ****************************************
+        // PROJECT - SAVE TO PROJECT REPORTS TABLE
+        // ****************************************
+        $table_name = $wpdb->prefix . 'project_reports';
+
+        $project_form_insert = $wpdb->insert(
+            $table_name,
+            array(
+                'date' => $date_time,
+                'project_id' => $fd['project-id'],
+                'project_name'  => get_the_title( $fd['project-id'] ),
+                'team_id' => $fd['team-id'],
+                'team_name' => get_the_title( $fd['team-id'] ),
+                'percent' => number_format($fd['percentage-completed']),
+                'points' => number_format($fd['team-points'])
+            )
+        );
+
+        if ( $project_form_insert === false ) {
+            $errors[] = 'Failed updating project progress field.';
+        }
+        //add_post_meta( $fd['project-id'], 'project_daily_form', $data );
 
     } else {
         $errors[] = 'Failed saving project data.';
@@ -267,7 +291,7 @@ function foreman_daily_form_func() {
     }
 
     $data = [
-        'date'          => date( 'm-d-Y', $time ),
+        'date'          => $date_time,
         'team-id'       => $fd['team-id'],
         'team-name'     => get_the_title( $fd['team-id'] ),
         'project-id'    => $fd['project-id'],
@@ -280,7 +304,30 @@ function foreman_daily_form_func() {
         'members'       => implode( ', ', $member_names )
     ];
 
-    if ( ! add_post_meta( $fd['team-id'], 'team_daily_form', $data ) ) {
+    // **********************************
+    // TEAM - SAVE TO TEAM REPORTS TABLE
+    // **********************************
+
+    $table_name = $wpdb->prefix . 'team_reports';
+
+    $team_form_insert = $wpdb->insert(
+        $table_name,
+        array(
+            'date'          => $date_time,
+            'team_id'       => $fd['team-id'],
+            'team_name'     => get_the_title( $fd['team-id'] ),
+            'project_id'    => $fd['project-id'],
+            'project_name'  => get_the_title( $fd['project-id'] ),
+            'foreman_id'    => $foreman['ID'],
+            'foreman_name'  => $foreman['display_name'],
+            'percent'       => number_format($fd['percentage-completed']),
+            'points'        => number_format($fd['team-points']),
+            'member_ids'    => implode( ', ', $member_ids ),
+            'members'       => implode( ', ', $member_names )
+        )
+    );
+
+    if ( $team_form_insert === false ) {
         $errors[] = 'Failed saving team data.';
     }
 
@@ -288,7 +335,7 @@ function foreman_daily_form_func() {
     // USER_META ( WORKER_DAILY_FORM )
     foreach ( $users as $user ) {
         $data = [
-            'date'                  => date( 'm-d-Y', $time ),
+            'date'                  => $date_time,
             'user-id'               => $user['user-id'],
             'user-name'             => get_user_by( 'id', $user['user-id'] )->display_name,
             'points'                => number_format($user['daily-points']),
@@ -306,7 +353,37 @@ function foreman_daily_form_func() {
             'quality'               => $user['quality'],
             'quality-notes'         => $user['quality-notes']
         ];
-        if ( ! add_user_meta( $user['user-id'], 'worker_daily_form', $data ) ) {
+
+        // **********************************
+        // USER - SAVE TO USER REPORTS TABLE
+        // **********************************
+
+        $table_name = $wpdb->prefix . 'user_reports';
+
+        $user_form_insert = $wpdb->insert(
+            $table_name,
+            array(
+                'date'          => $date_time,
+                'user_id'       => $user['user-id'],
+                'user_name'     => get_user_by( 'id', $user['user-id'] )->display_name,
+                'points'        => number_format($fd['team-points']),
+                'start_time'       => $user['start-time'],
+                'break'            => $user['break-time'],
+                'lunch'            => $user['lunch-time'],
+                'finish'           => $user['finish-time'],
+                'hours_worked'          => cal_hours_worked( $user['start-time'], $user['finish-time'] ),
+                'leadership'            => $user['leadership'],
+                'leadership_notes'      => $user['leadership-notes'],
+                'trust'                 => $user['trust'],
+                'trust_notes'           => $user['trust-notes'],
+                'safety'                => $user['safety'],
+                'safety_notes'          => $user['safety-notes'],
+                'quality'               => $user['quality'],
+                'quality_notes'         => $user['quality-notes']
+            )
+        );
+
+        if ( $user_form_insert === false ) {
             $errors[] = 'Failed saving user data.';
         }
     }
@@ -330,7 +407,7 @@ function foreman_daily_form_func() {
 
 
     $data = [
-        'date'              => date( 'm-d-Y', $time ),
+        'date'              => $date_time,
         'project-id'        => $fd['project-id'],
         'project-name'      => get_the_title( $fd['project-id'] ),
         'foreman-id'        => $foreman['ID'],
@@ -353,23 +430,54 @@ function foreman_daily_form_func() {
 
     ];
 
-    $new_daily_report_post = wp_insert_post( [
-        'post_title'   => 'daily report ' . time(),
-        'post_type'    => 'daily_reports',
-        'post_status'  => 'publish',
-        'post_content' => 'Daily report.',
-    ] );
+//   $new_daily_report_post = wp_insert_post( [
+//        'post_title'   => 'daily report ' . time(),
+//        'post_type'    => 'daily_reports',
+//        'post_status'  => 'publish',
+//        'post_content' => 'Daily report.',
+//    ] );
 
-    if ( ! $new_daily_report_post ) {
-        $errors[] = 'Failed creating new report.';
-    } else {
-        if ( ! add_post_meta( $new_daily_report_post, 'daily_report_form', $data ) ) {
-            $errors[] = 'Failed saving report data.';
-        }
+
+    // ***********************************
+    // DAILY - SAVE TO DAILY REPORTS TABLE
+    // ***********************************
+
+    $table_name = $wpdb->prefix . 'daily_reports';
+
+    $daily_form_insert = $wpdb->insert(
+        $table_name,
+        array(
+            'date'          => $date_time,
+            'project_id'    => $fd['project-id'],
+            'project_name'  => get_the_title( $fd['project-id'] ),
+            'foreman_id'    => $foreman['ID'],
+            'foreman_name'  => $foreman['display_name'],
+            'team_id'       => $fd['team-id'],
+            'team_name'     => get_the_title( $fd['team-id'] ),
+            'member_ids'    => implode( ', ', $member_ids ),
+            'members'       => implode( ', ', $member_names ),
+            'points'        => number_format($fd['team-points']),
+            'percent'       => number_format($fd['percentage-completed']),
+            'work_performed'    => $fd['work-performed'],
+            'jha'               => (isset($fd['jha'])) ? 'Yes' : 'No',
+            'hot_work_tomorrow' => $fd['hot-work-tomorrow'],
+            'inspections'       => $fd['inspections'],
+            'weather'           => implode(', ', $weather),
+            'equipment_used'    => $fd['equipment-used'],
+            'tekla'             => (isset($fd['tekla'])) ? 'Yes' : 'No',
+            'other_conditions'  => $fd['other-conditions'],
+            'tomorrows_plan'    => $fd['tomorrows-plan'],
+            'productivity'      => $fd['productivity']
+        )
+    );
+
+
+    if ( $daily_form_insert === false) {
+        $errors[] = 'Failed creating new daily report.';
     }
 
     if ( empty( $errors ) ) {
-        create_daily_report_json_tables();
+        //create_daily_report_json_tables();
         wp_send_json_success( 'saved!', 200 );
     } else {
         error_log(implode(' ', $errors), 0);
@@ -381,11 +489,11 @@ function foreman_daily_form_func() {
 add_action( 'wp_ajax_foreman_daily_form', 'foreman_daily_form_func' );
 
 
-//function create_daily_report_json_tables(){
-//
-//    $jt = new LABOR_Json_Tables();
-//
-//    $jt->create_daily_report_json_tables();
-//
-//}
-//add_action( 'init', 'create_daily_report_json_tables' );
+function create_daily_report_json_tables(){
+
+    $jt = new LABOR_Json_Tables();
+
+    $jt->create_daily_report_json_tables();
+
+}
+add_action( 'init', 'create_daily_report_json_tables' );

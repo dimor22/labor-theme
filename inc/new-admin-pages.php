@@ -75,25 +75,25 @@ add_action( 'admin_menu', 'user_report_page' );
 
 function daily_forms_report_page_func() {
 
-    // id's in local and prod are different
-    echo do_shortcode( '[wpdatatable id=7]' );
+    $id = get_field('daily_report_table_id', 'option');
+    echo do_shortcode( '[wpdatatable id=' . $id . ']' );
 
 }
 function project_report_page_func() {
 
-    // id's in local and prod are different
-    echo do_shortcode( '[wpdatatable id=8]' );
+    $id = get_field('project_report_table_id', 'option');
+    echo do_shortcode( '[wpdatatable id=' . $id . ']' );
 
 }
 function team_report_page_func() {
 
-    // id's in local and prod are different
-    echo do_shortcode( '[wpdatatable id=9]' );
+    $id = get_field('team_report_table_id', 'option');
+    echo do_shortcode( '[wpdatatable id=' . $id . ']' );
 
 }
 function user_report_page_func() {
 
-    // id's in local and prod are different
-    echo do_shortcode( '[wpdatatable id=10]' );
+    $id = get_field('user_report_table_id', 'option');
+    echo do_shortcode( '[wpdatatable id=' . $id . ']' );
 
 }
