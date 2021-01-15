@@ -32,15 +32,15 @@ while ( have_posts() ) :
                     <div class="onboarding-info-page">
                         <section class="certs">
                             <h4><?php _e('Certifications', 'laborapp');?></h4>
-                            <?php foreach ($onboarding_data['certs'] as $cert ) : ?>
                             <ul>
+                            <?php foreach ($onboarding_data['certs'] as $cert ) : ?>
                                 <?php if ( ! empty($cert) ) : ?>
                                 <li>
                                     <?php echo $cert; ?>
                                 </li>
                                 <?php endif;?>
-                            </ul>
                             <?php endforeach;?>
+                            </ul>
                         </section>
                         <section class="skills">
                             <h4><?php _e('Skills', 'laborapp');?></h4>
