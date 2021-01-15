@@ -1,5 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"X-Generator: Poedit 2.4.2\n"
+
 msgid "Phone"
 msgstr "Teléfono"
+
+msgid "Welcome to Onboarding in …"
+msgstr "Bienvenido al proceso de ..."
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Leadership"
+msgstr "Liderazgo"
+
+msgid "Personal Information"
+msgstr "Información Personal"
+
+msgid "First Name"
+msgstr "Nombre"
+
+msgid "Last Name"
+msgstr "Apellido"
+
+msgid "Certifications"
+msgstr "Certificationes"
+
+msgid "If you have certifications you must have a copy."
+msgstr "Si tiene certificaciones debe tener una copia."
+
+msgid "Skills"
+msgstr "Habilidades"
+
+msgid "What is your Skill Level."
+msgstr "A que Nivel esta en cuanto a las siguientes habilidades."
+
+msgid "Safety Trained"
+msgstr "Entrenado en medidas de Seguridad"
+
+msgid "Read Drawings"
+msgstr "Leer Dibujos"
+
+msgid "Shakeout / Layout"
+msgstr ""
+
+msgid "Forklift Operator"
+msgstr "Operador de Carretilla Elevadora"
+
+msgid "Connector"
+msgstr "Conectador"
+
+msgid "Welder"
+msgstr "Soldador"
+
+msgid "Columns"
+msgstr "Columnas"
+
+msgid "Beams"
+msgstr "Vigas"
+
+msgid "Ledger"
+msgstr ""
+
+msgid "Joist / Girters"
+msgstr "Viguetas / Ceñidores"
+
+msgid "Bridging / Frames"
+msgstr "Puentes / Marcos"
+
+msgid "Place Deck"
+msgstr "Colocar Piso"
+
+msgid "Attach Deck"
+msgstr "Adjuntar Piso"
+
+msgid "How Confortable are you leading and training"
+msgstr "Que agusto se siente como lider y entrenador"
+
+msgid "Prefer not to"
+msgstr "Prefiero no serlo"
+
+msgid "1 other person"
+msgstr "solo otra persona mas"
+
+msgid "2 other people"
+msgstr "2 personas mas"
+
+msgid "3 other people"
+msgstr "3 personas mas"
+
+msgid "4 other people"
+msgstr "4 personas mas"
+
+msgid "5 other people"
+msgstr "5 personas mas"
+
+msgid "More"
+msgstr "Mas"
+
+msgid "More Info"
+msgstr "Mas Información"
+
+msgid "Other helpful information about yourself"
+msgstr "Otra información relevante sobre usted"
+
+msgid "Register"
+msgstr "Registrame"
+
+msgid " section is not completed."
+msgstr " sección no completada."
+
+msgid "Form Submitted Successfully"
+msgstr "Formulario Sometido con Exito"
+
+msgid "Creating your Profile"
+msgstr "Creando su Perfil"
+
+msgid "Something bad happened. Please try again in a few minutes"
+msgstr "Algo malo ha ocurrido. Porfavor intentelo de nuevo en unos minutos"
+
+
 
 msgid "Please enter your phone number."
 msgstr "Por favor introduce tu número de teléfono."
@@ -27,3 +156,6 @@ msgstr "Nombre de Nuevo Projecto"
 
 msgid "Edit Project"
 msgstr "Edita Projecto"
+
+msgid "Number of people confortable to lead"
+msgstr "Numero de personas que estoy dispuesto a dirigir"

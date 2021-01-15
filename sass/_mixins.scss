@@ -1,0 +1,50 @@
+
+$bp-xxs: 30em; /* 480px - xxs */
+$bp-xs: 36em; /* 576px - xs */
+$bp-sm: 48em; /* 768px - sm */
+$bp-md: 64em; /* 1024px - md */
+$bp-lg: 85.375em; /* 1366px - lg */
+$bp-xl: 120em; /* 1920px - xl */
+$bp-xxl: 160em; /* 2560px - xxl */
+
+@mixin xxs {
+  @media screen and (min-width: #{$bp-xxs}) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media screen and (min-width: #{$bp-xs}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{$bp-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$bp-md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$bp-lg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$bp-xl}) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media screen and (min-width: #{$bp-xxl}) {
+    @content;
+  }
+}

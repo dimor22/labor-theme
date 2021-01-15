@@ -9,58 +9,7 @@
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, responsive-layout, accessibility-ready
- Text Domain:  labor-app
+ Text Domain:  laborapp
 */
 
 
-/* CSS GLOBAL CLASSES */
-.mt-1{
-    margin-top: 1rem;
-}
-.mb-1{
-    margin-bottom: 1rem;
-}
-.ml-1{
-    margin-left: 1rem;
-}
-.mr-1{
-    margin-right: 1rem;
-}
-/** HEADER **/
-.site-header {
-    background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
-    padding: 1em;
-}
-
-/** LEARN PRESS **/
-#lp-archive-courses ul.learn-press-courses {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-    width: 100%;
-}
-
-#lp-archive-courses ul.learn-press-courses .course {
-    width: 100%;
-}
-.avatar{
-    height: 100px;
-    width: 100px;
-}
-#learn-press-profile-header {
-    background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
-}
-
-@media ( min-width: 768px ) {
-    #lp-archive-courses ul.learn-press-courses {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media ( min-width: 1024px ) {
-    #lp-archive-courses ul.learn-press-courses {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}

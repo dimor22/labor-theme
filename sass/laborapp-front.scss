@@ -1,0 +1,212 @@
+@import "globals";
+
+@import "mixins";
+
+@import "skill-row";
+
+@import "fonts";
+
+@import "buttons";
+
+h1:not(.site-title):before,
+h2:before {
+  content: none;
+}
+
+body {
+  font-family: laborFont, sans-serif;
+}
+.button, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  font-family: laborFont, sans-serif;
+}
+.author-description .author-link, .comment-metadata, .comment-reply-link, .comments-title, .comment-author .fn, .discussion-meta-info, .entry-meta, .entry-footer, .main-navigation, .no-comments, .not-found .page-title, .error-404 .page-title, .post-navigation .post-title, .page-links, .page-description, .pagination .nav-links, .sticky-post, .site-title, .site-info, #cancel-comment-reply-link, h1, h2, h3, h4, h5, h6 {
+  font-family: laborFont, sans-serif;
+}
+button, input, select, optgroup, textarea {
+  font-family: laborFont;
+}
+
+/** HEADER **/
+.site-header {
+  background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
+  padding: 1em;
+}
+#site-navigation {
+  text-align: center;
+}
+
+.site-log {
+  text-align: center;
+}
+
+.main-navigation .main-menu > li > a {
+  color: white;
+}
+
+/** UWP **/
+.uwp_page .entry .entry-header {
+  display: none;
+}
+
+/** LEARN PRESS **/
+#lp-archive-courses ul.learn-press-courses {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  width: 100%;
+
+  .course {
+    width: 100%;
+  }
+}
+
+.avatar{
+  height: 100px;
+  width: 100px;
+}
+#learn-press-profile-header {
+  background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
+}
+
+/* LANGUAGE SWITCHER */
+#language-switcher {
+  max-width: calc(100% - (2 * 1rem));
+  margin: 0 1rem;
+  text-align: center;
+}
+.trp-language-switcher > div {
+  border: none;
+  background-image: none;
+  padding: 3px 6px 3px 5px;
+
+  &> a {
+    padding-right: 20px;
+  }
+}
+
+/* PAGE CONTENT */
+.entry .entry-content > *,
+.entry .entry-summary > *,
+.entry .entry-summary > .wp-block-group > .wp-block-group__inner-container > *,
+.entry .entry-content > .wp-block-group > .wp-block-group__inner-container > * {
+  max-width: 100%;
+}
+
+/* NEW-HIRE */
+.grid-two-columns {
+  display: grid;
+  grid-auto-columns: max-content;
+  grid-template-columns: 70% 20%;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  margin-bottom: 10px;
+
+  label {
+    background-color: #f6aa272e;
+    padding: 5px 10px;
+  }
+
+  input {
+    align-self: center;
+  }
+}
+
+/* NEW HIRE FORM */
+form h4 {
+  margin-top: 2em;
+  padding: 5px 8px;
+  background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
+  color: white;
+  font-weight: 100;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  margin: 5px 0;
+}
+
+.submit-btn {
+  text-align: center;
+}
+.personal-info-section {
+  display: flex;
+  flex-wrap: wrap;
+
+  input {
+    margin: 4px;
+    width: 100%;
+  }
+}
+
+/* ONBOARDING INFO PAGE */
+.onboarding-info-page {
+  section {
+    h4 {
+      padding: 5px 8px;
+      background: linear-gradient(to right, #2d323e 0%, #16191f 100%);
+      color: white;
+      font-weight: 100;
+    }
+    &.skills {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        li {
+          background-color: #efefef;
+          padding: 5px 8px;
+          &:nth-child(even) {
+            background-color: #d6d6d6;
+          }
+          span {
+            &.skill-name {
+              min-width: 50%;
+              display: inline-block;
+            }
+            &.skill-value {
+              display: inline-block;
+              min-width: 47%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media ( min-width: 768px ) {
+  #lp-archive-courses ul.learn-press-courses {
+    grid-template-columns: 1fr 1fr;
+  }
+  #language-switcher {
+    max-width: 80%;
+    margin: 0 10%;
+    padding: 0 60px;
+    text-align: right;
+  }
+
+  .personal-info-section {
+    input {
+      width: 48%;
+    }
+  }
+
+}
+
+@media ( min-width: 1024px ) {
+  #lp-archive-courses ul.learn-press-courses {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .personal-info-section {
+    justify-content: space-between;
+
+    input {
+      margin: 0;
+      width: 24%;
+    }
+  }
+}

@@ -4,10 +4,12 @@ $includes = [
     'inc/post-types.php',
     'inc/user-edit-page-fields.php',
     'inc/daily-foreman-form.php',
+    'inc/new-hire-form.php',
     'inc/login-page.php',
     'inc/new-admin-pages.php',
     'inc/meta-boxes.php',
-    'inc/acf-config.php'
+    'inc/acf-config.php',
+    'inc/onboarding-data.php'
 
 ];
 

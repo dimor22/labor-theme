@@ -4,11 +4,45 @@
  */
 function my_theme_enqueue_styles() {
     wp_enqueue_style( 'twentynineteen', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'labor-app-style',
+    wp_enqueue_style( 'laborapp-style',
         get_stylesheet_directory_uri() . '/style.css',
         array( 'twentynineteen' ),
         wp_get_theme()->get( 'Version' )
     );
+    wp_enqueue_style('laborapp-css-front', get_stylesheet_directory_uri() . '/css/laborapp-front.css','',
+        wp_get_theme()->get('Version'));
+    wp_enqueue_script( 'laborapp-js-front', get_stylesheet_directory_uri() . '/js/laborapp-front.js', [
+        'jquery',
+        'lodash'
+    ], '', true );
+    wp_localize_script( 'laborapp-js-front', 'laborappSettings', array(
+        'ajax_url'  => admin_url( 'admin-ajax.php' ),
+        'admin_url' => admin_url(),
+        'account'   => home_url('account'),
+        'nonce'     => wp_create_nonce( "new_hire_form_nonce" ),
+        'sections' => [
+            [
+                'display' => __('Personal', 'laborapp'),
+                'short' => 'pers'
+            ],
+            [
+                'display'   => __('Skills', 'laborapp'),
+                'short'     => 'skil'
+            ],
+            [
+                'display'   => __('Leadership', 'laborapp'),
+                'short'     => 'lead'
+            ]
+        ],
+        'validation_msgs' => [
+                    ['error'         => __(' section is not completed.', 'laborapp')],
+                    ['success'       => __('Form Submitted Successfully', 'laborapp')],
+                    ['processing'       => __('Creating your Profile', 'laborapp')],
+                    ['fail'          => __('Something bad happened. Please try again in a few minutes', 'laborapp')]
+        ]
+    ) );
+    wp_enqueue_script( 'sweet-alert-2', 'https://cdn.jsdelivr.net/npm/sweetalert2@9', '', '', true );
+
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
@@ -19,26 +53,26 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function load_admin_scripts() {
     wp_enqueue_style('animate-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css');
     wp_enqueue_style( 'labor-swipe-css', 'https://unpkg.com/swiper/swiper-bundle.min.css' );
-    wp_enqueue_style( 'labor-admin-css', get_stylesheet_directory_uri() . '/admin-style.css', false, '1.0.0' );
+    wp_enqueue_style( 'labor-admin-css', get_stylesheet_directory_uri() . '/css/admin.css', false, '1.0.0' );
 
     // Check anyone < ADMIN
     if ( ! current_user_can( 'update_core' ) ) {
-        wp_enqueue_style( 'cleanup-admin-css', get_stylesheet_directory_uri() . '/less-admin.css', false, '1.0.0' );
+        wp_enqueue_style( 'cleanup-admin-css', get_stylesheet_directory_uri() . '/css/less-admin.css', false, '1.0.0' );
     }
 
     wp_enqueue_script( 'labor-swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', [ 'jquery' ], '', true );
     wp_enqueue_script( 'labor-numeral', '//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js', [ 'jquery' ], '', true );
     wp_enqueue_script( 'chart-js', 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js', '', '', true );
     wp_enqueue_script( 'chart-dashboard', get_stylesheet_directory_uri() . '/js/dashboard-charts.js', '', '', true );
-    wp_register_script( 'labor-app-js', get_stylesheet_directory_uri() . '/js/app.js', [
+    wp_register_script( 'laborapp-js', get_stylesheet_directory_uri() . '/js/laborapp-admin.js', [
         'jquery',
         'lodash'
     ], '', true );
-    wp_localize_script( 'labor-app-js', 'labor_form_ajax', array(
+    wp_localize_script( 'laborapp-js', 'labor_form_ajax', array(
         'ajax_url'  => admin_url( 'admin-ajax.php' ),
         'admin_url' => admin_url()
     ) );
-    wp_enqueue_script( 'labor-app-js', null, [ 'jquery', 'lodash' ], '', true );
+    wp_enqueue_script( 'laborapp-js', null, [ 'jquery', 'lodash' ], '', true );
     wp_enqueue_script( 'sweet-alert-2', 'https://cdn.jsdelivr.net/npm/sweetalert2@9', '', '', true );
     wp_enqueue_script('gauge-library', get_stylesheet_directory_uri() . '/js/gauge.min.js');
 
@@ -50,7 +84,7 @@ add_action( 'admin_enqueue_scripts', 'load_admin_scripts' );
  * LOAD THEME TRANSLATIONS FOLDER LABOR/LANGUAGES
  */
 function my_theme_load_theme_textdomain() {
-    load_child_theme_textdomain( 'labor-app', get_stylesheet_directory() . '/languages' );
+    load_child_theme_textdomain( 'laborapp', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'my_theme_load_theme_textdomain' );
 
@@ -192,9 +226,9 @@ add_action( 'wp_dashboard_setup', 'remove_dashboard_widgets' );
 /**
  * REDIRECTS HOME PAGE TO ADMIN DASHBOARD
  */
-function back_to_admin() {
-    if ( is_front_page() ) {
-        wp_redirect( admin_url() );
-    }
-}
-add_action( 'template_redirect', 'back_to_admin' );
+//function back_to_admin() {
+//    if ( is_front_page() ) {
+//        wp_redirect( admin_url() );
+//    }
+//}
+//add_action( 'template_redirect', 'back_to_admin' );

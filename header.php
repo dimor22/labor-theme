@@ -50,4 +50,8 @@
 		<?php endif; ?>
 	</header><!-- #masthead -->
 
+    <div id="language-switcher">
+        <?php echo do_shortcode('[language-switcher]');?>
+    </div>
+
 	<div id="content" class="site-content">

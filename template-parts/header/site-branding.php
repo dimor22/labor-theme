@@ -11,7 +11,9 @@
 
 
 	<div class="site-log">
-		<img src="<?php echo get_stylesheet_directory_uri() . '/images/labor-logo-md.png';?>" alt="Labor App Logo">
+        <a href="/">
+            <img src="<?php echo get_stylesheet_directory_uri() . '/images/labor-logo-md.png';?>" alt="Labor App Logo">
+        </a>
 	</div>
 
 

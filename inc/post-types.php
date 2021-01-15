@@ -5,10 +5,10 @@
 function team_members_init() {
     $args = array(
         'labels'      => array(
-            'name'          => __( 'Projects', 'labor-app' ),
-            'singular_name' => __( 'Project', 'labor-app' ),
-            'add_new_item'  => __( 'New Project Name', 'labor-app' ),
-            'edit_item'     => __( 'Edit Project', 'labor-app' )
+            'name'          => __( 'Projects', 'laborapp' ),
+            'singular_name' => __( 'Project', 'laborapp' ),
+            'add_new_item'  => __( 'New Project Name', 'laborapp' ),
+            'edit_item'     => __( 'Edit Project', 'laborapp' )
         ),
         'public'      => true,
         'menu_icon'   => 'dashicons-portfolio',
@@ -28,10 +28,10 @@ add_action( 'init', 'team_members_init' );
 function labor_teams_page() {
     $args = array(
         'labels'      => array(
-            'name'          => __( 'Teams', 'labor-app' ),
-            'singular_name' => __( 'Team', 'labor-app' ),
-            'add_new_item'  => __( 'New Team Name', 'labor-app' ),
-            'edit_item'     => __( 'Edit Team', 'labor-app' )
+            'name'          => __( 'Teams', 'laborapp' ),
+            'singular_name' => __( 'Team', 'laborapp' ),
+            'add_new_item'  => __( 'New Team Name', 'laborapp' ),
+            'edit_item'     => __( 'Edit Team', 'laborapp' )
         ),
         'public'      => true,
         'menu_icon'   => 'dashicons-groups',
