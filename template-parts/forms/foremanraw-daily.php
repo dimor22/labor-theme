@@ -28,7 +28,9 @@
 									while ( $projects->have_posts() ) {
 										$projects->the_post();
                                         $team_obj = get_field('team');
-										printf('<option value="%d" data-project-points="%s" data-project-percent="%s" data-team-id="%d">%s</option>', get_the_ID(), get_field('project_points'), get_field('project_completed'), $team_obj->ID, get_the_title());
+                                        if ( get_field('project_completed') < 100 ) {
+                                            printf('<option value="%d" data-project-points="%s" data-project-percent="%s" data-team-id="%d">%s</option>', get_the_ID(), get_field('project_points'), get_field('project_completed'), $team_obj->ID, get_the_title());
+                                        }
 									}
 
 								} else {

@@ -9,7 +9,8 @@ $includes = [
     'inc/new-admin-pages.php',
     'inc/meta-boxes.php',
     'inc/acf-config.php',
-    'inc/onboarding-data.php'
+    'inc/onboarding-data.php',
+    'inc/admin-table-columns.php'
 
 ];
 

@@ -232,3 +232,65 @@ add_action( 'wp_dashboard_setup', 'remove_dashboard_widgets' );
 //    }
 //}
 //add_action( 'template_redirect', 'back_to_admin' );
+
+/**
+ * Saves post date as the title of the post ONLY for Daily-Plan post type
+ */
+add_filter( 'wp_insert_post_data' , 'filter_post_data' , '99', 2 );
+function filter_post_data( $data , $postarr ) {
+    // Change post title
+    global $post;
+
+    if ( $post->post_type == 'daily-plan' ) {
+        $data['post_title'] = date('F j, Y', strtotime( $data['post_date']) );
+    }
+
+    return $data;
+}
+
+
+function filter_query_by_foreman( $query ) {
+
+    if ( ! user_can( get_current_user_id(), 'delete_others_pages') ) {
+
+        // Run for Foremen Only
+        if ( $query->query['post_type'] == 'teams') {
+            // For teams posts
+            $query->set('meta_key','labor_select_foreman');
+            $query->set('meta_value', get_current_user_id());
+        }
+        if ( $query->query['post_type'] == 'projects') {
+            // For projects posts
+            $query->set('meta_key','labor_project_lead_foreman');
+            $query->set('meta_value', get_current_user_id());
+        }
+        if ( $query->query['post_type'] == 'daily-plan') {
+            // For daily plan
+            $query->set('author', get_current_user_id());
+        }
+    }
+
+
+}
+add_action( 'pre_get_posts', 'filter_query_by_foreman');
+
+//
+//function wporg_debug() {
+//    if ( current_action() == 'pre_get_posts') {
+//        echo '<p>' . current_action() . '</p>';
+//    }
+//}
+//add_action( 'all', 'wporg_debug' );
+
+
+//add_action('admin_init', 'testing');
+//function testing() {
+//    echo "<h1 id='#testing'>" . get_current_user_id() . "</h1>";
+//    if ( ! user_can( get_current_user_id(), 'delete_others_pages') ) {
+//        echo 'User is NOT Admin';
+//    } else {
+//        echo 'You are ADMIN';
+//    }
+//}
+
+

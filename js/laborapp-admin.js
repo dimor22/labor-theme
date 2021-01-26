@@ -397,6 +397,11 @@
         }
       }
 
+      // VALIDATE POINTS EARNED
+      if ( validate && $('.swiper-slide.swiper-slide-active').find('[data-team-points-remaining]').html() < 0 ) {
+          stopShowError( 'Too many points earned assigned.' )
+      }
+
       // VALIDATE BEHAVIOR IS CHECKED
       if ( validate && $('.swiper-slide.swiper-slide-active').find('.daily-points').length > 0 ){
 

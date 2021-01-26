@@ -70,3 +70,5 @@ function daily_reports() {
     register_post_type( 'daily_reports', $args );
 }
 add_action( 'init', 'daily_reports' );
+
+// DAILY PLAN IS CREATED WITH "CPT UI"
