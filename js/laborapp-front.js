@@ -90,6 +90,28 @@
 
         });
 
+        // show/hide password
+        $(document).ready(function(){
+            $("#toggle-pwd-visibility").change(function(){
+
+                // Check the checkbox state
+                if($(this).is(':checked')){
+                    // Changing type attribute
+                    $("#personal-password").attr("type","text");
+
+                    // Change the Text
+                    $("#toggleText").text(laborappSettings.validation_msgs[5].hide);
+                }else{
+                    // Changing type attribute
+                    $("#personal-password").attr("type","password");
+
+                    // Change the Text
+                    $("#toggleText").text(laborappSettings.validation_msgs[4].show);
+                }
+
+            });
+        });
+
 
         const Toast = Swal.mixin({
             toast: true,

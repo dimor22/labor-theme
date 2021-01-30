@@ -23,7 +23,7 @@ function new_hire_form_func()
         'first_name'    => $fd['personal-fname'],
         'last_name'     => $fd['personal-lname'],
         'user_email'    => $fd['personal-email'],
-        'user_pass'     => '1234567890'
+        'user_pass'     => $fd['password']
     );
 
     $user_id = wp_insert_user( $userdata ) ;
@@ -75,7 +75,7 @@ function new_hire_form_func()
     // LOG IN USER
     $creds = array(
         'user_login'    => $fd['personal-lname'] . ucfirst($fd['personal-fname']),
-        'user_password' => '1234567890',
+        'user_password' => $fd['password'],
         'remember'      => true
     );
     wp_signon($creds, true);

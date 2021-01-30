@@ -130,6 +130,11 @@ button, input, select, optgroup, textarea {
 .main-navigation .main-menu > li > a {
   color: white; }
 
+@media screen and (min-width: 64em) {
+  .entry .entry-content, .entry .entry-summary {
+    max-width: 1200px;
+    margin: 0 auto; } }
+
 /** UWP **/
 .uwp_page .entry .entry-header {
   display: none; }
@@ -197,7 +202,8 @@ form h4 {
 
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+input[type="password"] {
   margin: 5px 0; }
 
 .submit-btn {

@@ -46,6 +46,18 @@ get_header();
 
 
 
+                            <!--  Password -->
+                            <h4><?php _e('Account Password', 'laborapp'); ?></h4>
+                            <p><?php _e('With this password you will be able to login to your account and review the status of your application.', 'laborapp'); ?></p>
+                            <div class="personal-password">
+                                <label for="personal-pwd"><?php _e('Password', 'laborapp'); ?></label>
+                                <input type="password" id="personal-password" name="password">
+                                <input type='checkbox' id='toggle-pwd-visibility' value='0'>
+                                <span id='toggleText'><?php _e('Show', 'laborapp'); ?></span>
+                            </div>
+
+
+
 
                             <!-- Certifications -->
                             <h4><?php _e('Certifications', 'laborapp');?></h4>

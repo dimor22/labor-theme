@@ -26,6 +26,10 @@ function my_theme_enqueue_styles() {
                 'short' => 'pers'
             ],
             [
+                'display' => __('Password', 'laborapp'),
+                'short' => 'pass'
+            ],
+            [
                 'display'   => __('Skills', 'laborapp'),
                 'short'     => 'skil'
             ],
@@ -38,7 +42,9 @@ function my_theme_enqueue_styles() {
                     ['error'         => __(' section is not completed.', 'laborapp')],
                     ['success'       => __('Form Submitted Successfully', 'laborapp')],
                     ['processing'       => __('Creating your Profile', 'laborapp')],
-                    ['fail'          => __('Something bad happened. Please try again in a few minutes', 'laborapp')]
+                    ['fail'          => __('Something bad happened. Please try again in a few minutes', 'laborapp')],
+            ['show'          => __('Show', 'laborapp')],
+            ['hide'          => __('Hide', 'laborapp')]
         ]
     ) );
     wp_enqueue_script( 'sweet-alert-2', 'https://cdn.jsdelivr.net/npm/sweetalert2@9', '', '', true );

@@ -90,19 +90,19 @@ msgid "Prefer not to"
 msgstr "Prefiero no serlo"
 
 msgid "1 other person"
-msgstr "solo otra persona mas"
+msgstr "solo otra persona más"
 
 msgid "2 other people"
-msgstr "2 personas mas"
+msgstr "2 personas más"
 
 msgid "3 other people"
-msgstr "3 personas mas"
+msgstr "3 personas más"
 
 msgid "4 other people"
-msgstr "4 personas mas"
+msgstr "4 personas más"
 
 msgid "5 other people"
-msgstr "5 personas mas"
+msgstr "5 personas más"
 
 msgid "More"
 msgstr "Mas"
@@ -114,7 +114,7 @@ msgid "Other helpful information about yourself"
 msgstr "Otra información relevante sobre usted"
 
 msgid "Register"
-msgstr "Registrame"
+msgstr "Regístrate"
 
 msgid " section is not completed."
 msgstr " sección no completada."
@@ -127,8 +127,6 @@ msgstr "Creando su Perfil"
 
 msgid "Something bad happened. Please try again in a few minutes"
 msgstr "Algo malo ha ocurrido. Porfavor intentelo de nuevo en unos minutos"
-
-
 
 msgid "Please enter your phone number."
 msgstr "Por favor introduce tu número de teléfono."
@@ -159,3 +157,18 @@ msgstr "Edita Projecto"
 
 msgid "Number of people confortable to lead"
 msgstr "Numero de personas que estoy dispuesto a dirigir"
+
+msgid "With this password you will be able to login to your account and review the status of your application."
+msgstr "Con esta contraseña podras acceder a tu cuenta y revisar el estado de tu aplicación."
+
+msgid "Account Password"
+msgstr "Contraseña de Cuenta"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Hide"
+msgstr "Esconder"
