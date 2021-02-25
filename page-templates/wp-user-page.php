@@ -140,7 +140,7 @@ while ( have_posts() ) :
                         </section>
                         <section class="more-info">
                             <h4><?php _e('More Info', 'laborapp');?></h4>
-                            <?php if ( ! empty($onboarding_data['more-info']) && count($onboarding_data['more-info']) > 0 ): ?>
+                            <?php if ( ! empty($onboarding_data['more-info']) ): ?>
                                 <p><?php echo $onboarding_data['more-info'];?></p>
                                 <?php else : ?>
                                 <p><?php _e('Empty', 'laborapp'); ?></p>
