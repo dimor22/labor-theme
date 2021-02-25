@@ -23,14 +23,16 @@ function labor_foreman_form_page() {
 
 // DAILY FORM REPORTS PAGE
 function daily_forms_report_page() {
-    add_menu_page( 'Daily Report Page',
-        'Daily Report',
-        'delete_published_posts',
-        'daily_report_page',
-        'daily_forms_report_page_func',
-        'dashicons-media-spreadsheet',
-        6
-    );
+    if ( user_can( get_current_user_id(), 'delete_others_pages' ) ) {
+        add_menu_page('Daily Report Page',
+            'Daily Report',
+            'delete_published_posts',
+            'daily_report_page',
+            'daily_forms_report_page_func',
+            'dashicons-media-spreadsheet',
+            6
+        );
+    }
 }
 add_action( 'admin_menu', 'daily_forms_report_page' );
 

@@ -9,7 +9,7 @@ function my_custom_dashboard_widgets() {
 
     wp_add_dashboard_widget( 'labor_projects_completion_widget', '&#187; Project Completion', 'labor_projects_completion' );
     wp_add_dashboard_widget( 'labor_team_performance_widget', '&#187; Team Performance', 'labor_team_performance' );
-    wp_add_dashboard_widget( 'labor_tomorrows_plan_widget', '&#187; Tomorrow\'s Plan Feed', 'labor_tomorrows_plan' );
+//    wp_add_dashboard_widget( 'labor_tomorrows_plan_widget', '&#187; Tomorrow\'s Plan Feed', 'labor_tomorrows_plan' );
 }
 
 function labor_projects_completion() {
