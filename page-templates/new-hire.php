@@ -926,15 +926,15 @@ get_header();
                                 <input type="text"
                                        placeholder="<?php _e('Company Name', 'laborapp'); ?>"
                                        id="company1name"
-                                       name="company1[name]">
+                                       name="company1-name">
                                 <input type="text"
                                        placeholder="<?php _e('Years Worked', 'laborapp'); ?>"
                                        id="company1time"
-                                       name="company1[time]">
+                                       name="company1-time">
                                 <input type="text"
                                        placeholder="<?php _e('Wage', 'laborapp'); ?>"
                                        id="company1wage"
-                                       name="company1[wage]">
+                                       name="company1-wage">
                             </div>
 
                             <hr/>
@@ -944,15 +944,15 @@ get_header();
                                 <input type="text"
                                        placeholder="<?php _e('Company Name', 'laborapp'); ?>"
                                        id="company2name"
-                                       name="company2[name]">
+                                       name="company2-name">
                                 <input type="text"
                                        placeholder="<?php _e('Years Worked', 'laborapp'); ?>"
                                        id="company2time"
-                                       name="company2[time]">
+                                       name="company2-time">
                                 <input type="text"
                                        placeholder="<?php _e('Wage', 'laborapp'); ?>"
                                        id="company2wage"
-                                       name="company2[wage]">
+                                       name="company2-wage">
                             </div>
 
                             <hr/>
@@ -962,15 +962,15 @@ get_header();
                                 <input type="text"
                                        placeholder="<?php _e('Company Name', 'laborapp'); ?>"
                                        id="company3name"
-                                       name="company3[name]">
+                                       name="company3-name">
                                 <input type="text"
                                        placeholder="<?php _e('Years Worked', 'laborapp'); ?>"
                                        id="company3time"
-                                       name="company3[time]">
+                                       name="company3-time">
                                 <input type="text"
                                        placeholder="<?php _e('Wage', 'laborapp'); ?>"
                                        id="company3wage"
-                                       name="company3[wage]">
+                                       name="company3-wage">
                             </div>
 
 

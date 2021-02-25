@@ -1063,6 +1063,39 @@ function extra_user_profile_fields( $user ) { ?>
         </tr>
         <tr>
             <th>
+                <h3><?php _e('Employer Experience', 'laborapp'); ?></h3>
+            </th>
+            <td>
+                <?php
+                $comp1_message = __('No Data.','laborapp');
+                $comp2_message = __('No Data.','laborapp');
+                $comp3_message = __('No Data.','laborapp');
+                $comp1 = unserialize(get_the_author_meta('company1', $user->ID));
+                $comp2 = unserialize(get_the_author_meta('company2', $user->ID));
+                $comp3 = unserialize(get_the_author_meta('company3', $user->ID));
+                if ( ! empty($comp1)) {
+                    $comp1_message = "{$comp1['name']} &middot;
+                                        {$comp1['time']} Years &middot;
+                                        Wage {$comp1['wage']}";
+                }
+                if ( ! empty($comp2)) {
+                    $comp2_message = "{$comp2['name']} &middot;
+                                            {$comp2['time']} Years &middot;
+                                            Wage {$comp2['wage']}";
+                }
+                if ( ! empty($comp3)) {
+                    $comp3_message = "{$comp3['name']} &middot;
+                                            {$comp3['time']} Years &middot;
+                                            Wage {$comp3['wage']}";
+                }
+                ?>
+                <p>Company 1: <?php echo $comp1_message?></p>
+                <p>Company 2: <?php echo $comp2_message;?></p>
+                <p>Company 3: <?php echo $comp3_message;?></p>
+            </td>
+        </tr>
+        <tr>
+            <th>
                 <h3><?php _e('Leadership', 'laborapp');?></h3>
             </th>
             <td>

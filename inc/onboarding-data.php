@@ -49,6 +49,20 @@ function get_onboarding_data( $user_id ) {
     buildDataArray($data, $user_id, 'manliftCert', 'cert');
     buildDataArray($data, $user_id, 'welderCert', 'cert');
 
+    // ** EMPLOYERS ** //
+    $comp1 = get_user_meta($user_id, 'company1');
+    if ( ! empty($comp1) ) {
+        $data['comp1'] = unserialize($comp1[0]);
+    }
+
+    $comp2 = get_user_meta($user_id, 'company2');
+    if ( ! empty($comp2) ) {
+        $data['comp2'] = unserialize($comp2[0]);
+    }
+    $comp3 = get_user_meta($user_id, 'company3');
+    if ( ! empty($comp3) ) {
+        $data['comp3'] = unserialize($comp3[0]);
+    }
 
     $data['certs']['more'] = get_user_meta($user_id, 'whatcerts', true);
     $data['more-info'] = get_user_meta($user_id, 'more-info', true);

@@ -84,11 +84,11 @@ while ( have_posts() ) :
                                     <p><?php _e('No Tools.', 'laborapp'); ?></p>
                                 <?php endif;?>
                         </section>
-                        <section class="history">
-                            <h4><?php _e('History', 'laborapp'); ?></h4>
+                        <section class="experience">
+                            <h4><?php _e('Work Experience', 'laborapp'); ?></h4>
                             <p><?php _e('Years in Steel Shop', 'laborapp'); ?>
                             <?php
-                                    if ( ! empty($onboarding_data['history']['steel-shop']) && count($onboarding_data['history']['steel-shop']) > 0 ) {
+                                    if ( ! empty($onboarding_data['history']['steel-shop'])) {
                                         echo ': ' . $onboarding_data['history']['steel-shop'];
                                     } else {
                                         echo ': 0';
@@ -97,7 +97,7 @@ while ( have_posts() ) :
                             </p>
                             <p><?php _e('Years in Field Hanging Steel', 'laborapp'); ?>
                             <?php
-                                if ( ! empty($onboarding_data['history']['harness-steel']) && count($onboarding_data['history']['harness-steel']) > 0 ) {
+                                if ( ! empty($onboarding_data['history']['harness-steel'])) {
                                     echo ': ' . $onboarding_data['history']['harness-steel'];
                                 } else {
                                     echo ': 0';
@@ -105,6 +105,34 @@ while ( have_posts() ) :
                             ?>
                             </p>
                         </section>
+                        <section class="history">
+                            <h4><?php _e('Employer History', 'laborapp'); ?></h4>
+                            <?php
+                                $comp1 = __('No Data.','laborapp');
+                                $comp2 = __('No Data.','laborapp');
+                                $comp3 = __('No Data.','laborapp');
+                                if ( ! empty($onboarding_data['comp1'])) {
+                                    $comp1 = "{$onboarding_data['comp1']['name']} &middot;
+                                        {$onboarding_data['comp1']['time']} Years &middot;
+                                        Wage {$onboarding_data['comp1']['wage']}";
+                                }
+                                if ( ! empty($onboarding_data['comp2'])) {
+                                    $comp2 = "{$onboarding_data['comp2']['name']} &middot;
+                                            {$onboarding_data['comp2']['time']} Years &middot;
+                                            Wage {$onboarding_data['comp2']['wage']}";
+                                }
+                                if ( ! empty($onboarding_data['comp3'])) {
+                                    $comp3 = "{$onboarding_data['comp3']['name']} &middot;
+                                            {$onboarding_data['comp3']['time']} Years &middot;
+                                            Wage {$onboarding_data['comp3']['wage']}";
+                                }
+                                ?>
+                            <p>Company 1: <?php echo $comp1?></p>
+                            <p>Company 2: <?php echo $comp2;?></p>
+                            <p>Company 3: <?php echo $comp3;?></p>
+
+                        </section>
+
                         <section class="leadership">
                             <h4><?php _e('Leadership', 'laborapp');?></h4>
                             <p><?php echo __('Number of people confortable to lead', 'laborapp') . ': ' .

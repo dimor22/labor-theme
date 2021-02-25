@@ -47,6 +47,12 @@ function new_hire_form_func()
     update_user_meta($user_id, 'personal-phone', $fd['personal-phone']);
     update_user_meta($user_id, 'leadership', $fd['leadership']);
 
+    update_user_meta($user_id, 'cert-osha10', $fd['cert-osha10']);
+    update_user_meta($user_id, 'cert-osha30', $fd['cert-osha30']);
+    update_user_meta($user_id, 'cert-forkliftCert', $fd['cert-forkliftCert']);
+    update_user_meta($user_id, 'cert-manliftCert', $fd['cert-manliftCert']);
+    update_user_meta($user_id, 'cert-welderCert', $fd['cert-welderCert']);
+
     update_user_meta($user_id, 'skill-safetyTrained', $fd['skill-safetyTrained']);
     update_user_meta($user_id, 'skill-readdrawings', $fd['skill-readdrawings']);
     update_user_meta($user_id, 'skill-fieldlayout', $fd['skill-fieldlayout']);
@@ -74,13 +80,16 @@ function new_hire_form_func()
     update_user_meta($user_id, 'history-steel-shop', $fd['history-steel-shop']);
     update_user_meta($user_id, 'history-harness-steel', $fd['history-harness-steel']);
 
+    $comp1 = ['name' => $fd['company1-name'], 'time' => $fd['company1-time'], 'wage' => $fd['company1-wage']];
+    $comp2 = ['name' => $fd['company2-name'], 'time' => $fd['company2-time'], 'wage' => $fd['company2-wage']];
+    $comp3 = ['name' => $fd['company3-name'], 'time' => $fd['company3-time'], 'wage' => $fd['company3-wage']];
+
+    update_user_meta($user_id, 'company1', serialize($comp1));
+    update_user_meta($user_id, 'company2', serialize($comp2));
+    update_user_meta($user_id, 'company3', serialize($comp3));
 
 
-    update_user_meta($user_id, 'cert-osha10', $fd['cert-osha10']);
-    update_user_meta($user_id, 'cert-osha30', $fd['cert-osha30']);
-    update_user_meta($user_id, 'cert-forkliftCert', $fd['cert-forkliftCert']);
-    update_user_meta($user_id, 'cert-manliftCert', $fd['cert-manliftCert']);
-    update_user_meta($user_id, 'cert-welderCert', $fd['cert-welderCert']);
+
 
 
     // Textarea inputs (optionals)
