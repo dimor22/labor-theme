@@ -14,11 +14,28 @@
 							<select name="project-id" id="project-input">
 								<?php
 
-								$projects = new WP_Query(array(
-									'post_type'     => 'Projects',
-									'post_status'   => 'publish',
-									'numberposts'   => -1
-								));
+                                $args = [
+                                    'post_type'     => 'Projects',
+                                    'post_status'   => 'publish',
+                                    'numberposts'   => -1,
+                                    'meta_key'      => 'labor_project_lead_foreman',
+                                    'meta_value'    => get_current_user_id()
+                                ];
+
+                                /**
+                                 * IF USER IS AN ADMIN SEE ALL PROJECTS
+                                 */
+                                if ( user_can( get_current_user_id(), 'delete_others_pages' ) ) {
+                                    $args = [
+                                        'post_type'     => 'Projects',
+                                        'post_status'   => 'publish',
+                                        'numberposts'   => -1
+                                    ];
+                                }
+
+								$projects = new WP_Query( $args );
+
+                                $first_project_tasks = [];
 
 
 
@@ -32,9 +49,6 @@
                                             printf('<option value="%d" data-project-points="%s" data-project-percent="%s" data-team-id="%d">%s</option>', get_the_ID(), get_field('project_points'), get_field('project_completed'), $team_obj->ID, get_the_title());
                                         }
 									}
-
-								} else {
-									// no posts found
 								}
 								/* Restore original Post Data */
 								wp_reset_postdata();
@@ -64,6 +78,17 @@
 							<div id="total-points-today" class="">0</div>
 						</div>
 					</div>
+
+                    <div class="card">
+                            <h3 class="">Tasks Completed Today</h3>
+                            <div class="tasks-completed-foreman-form-row tasks-completed-foreman-form-row--header">
+                                <div class="tasks-completed-foreman-form-row__name">TASK NAME</div>
+                                <div class="tasks-completed-foreman-form-row__total">TOTAL</div>
+                                <div class="tasks-completed-foreman-form-row__ttd">TTD</div>
+                                <div class="tasks-completed-foreman-form-row__today">TODAY</div>
+                            </div>
+                            <div id="js-tasks-completed-today-section"></div>
+                    </div>
 				</div><!-- end of slide 1 -->
 				
 				<div class="swiper-slide ffp-slide">

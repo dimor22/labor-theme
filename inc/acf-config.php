@@ -27,4 +27,19 @@ function my_acf_fields_relationship_query( $args, $field, $post_id ) {
     return $args;
 }
 
+/**
+ * Filter Relationship field "Project" from "DAILY PLAN" post INPUT
+ */
+add_filter('acf/fields/relationship/query/name=task_project', 'my_acf_fields_tast_project_relationship_query', 10, 3);
+function my_acf_fields_tast_project_relationship_query( $args, $field, $post_id ) {
+
+    if ( user_can( get_current_user_id(), 'delete_others_pages' ) ) {
+        // For Admins Only
+        $args['meta_key'] = 'labor_project_lead_foreman';
+        $args['meta_value'] = get_post_field( 'post_author', $post_id );
+    }
+
+    return $args;
+}
+
 

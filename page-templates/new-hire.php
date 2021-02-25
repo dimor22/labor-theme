@@ -28,7 +28,7 @@ get_header();
                         <!-- ONBOARDING FORM -->
                         <form action="<?php echo admin_url( 'admin-post.php' ); ?>"
                               method="POST"
-                              id="new-hire-form">_
+                              id="new-hire-form">
 
 
 
@@ -39,6 +39,8 @@ get_header();
                                        name="personal-fname">
                                 <input type="text" placeholder="<?php _e('Last Name','laborapp');?>"
                                        name="personal-lname">
+                                <input type="text" placeholder="<?php _e('Nick Name','laborapp');?>"
+                                       name="nickname">
                                 <input type="email" placeholder="<?php _e('Email','laborapp');?>"
                                        name="personal-email">
                                 <input type="tel" placeholder="<?php _e('Phone','laborapp');?>" name="personal-phone">
@@ -66,20 +68,32 @@ get_header();
                                 <label for="osha10">Osha 10</label>
                                 <input type="checkbox"
                                        id="osha10"
-                                       value="osha10"
+                                       value="Osha 10"
                                        name="cert-osha10">
 
                                 <label for="osha30">Osha 30</label>
-                                <input id="osha30" type="checkbox" value="osha30" name="cert-osha30">
+                                <input id="osha30"
+                                       type="checkbox"
+                                       value="Osha 30"
+                                       name="cert-osha30">
 
                                 <label for="forkliftCert">Forklift Cert</label>
-                                <input id="forkliftCert" type="checkbox" value="forkliftCert" name="cert-forkliftCert">
+                                <input id="forkliftCert"
+                                       type="checkbox"
+                                       value="Forklift"
+                                       name="cert-forkliftCert">
 
                                 <label for="manliftCert">Manlift Cert</label>
-                                <input id="manliftCert" type="checkbox" value="manliftCert" name="cert-manliftCert">
+                                <input id="manliftCert"
+                                       type="checkbox"
+                                       value="Manlift"
+                                       name="cert-manliftCert">
 
                                 <label for="welderCert">Welder Cert</label>
-                                <input id="welderCert" type="checkbox" value="welderCert" name="cert-welderCert">
+                                <input id="welderCert"
+                                       type="checkbox"
+                                       value="Welder"
+                                       name="cert-welderCert">
                             </div>
 
 
@@ -206,59 +220,59 @@ get_header();
                                 </ul>
                             </div>
 
-                            <!-- Shakeout / Layout -->
+                            <!-- Field / Layout -->
                             <div class="skill-row">
-                                <p><?php _e('Shakeout / Layout', 'laborapp');?></p>
+                                <p><?php _e('Field / Layout', 'laborapp');?></p>
                                 <ul>
                                     <li>
-                                        <label for="Shakeout1">1</label>
-                                        <input id="Shakeout1" type="radio" value="1"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout1">1</label>
+                                        <input id="Fieldlayout1" type="radio" value="1"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout2">2</label>
-                                        <input id="Shakeout2" type="radio" value="2"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout2">2</label>
+                                        <input id="Fieldlayout2" type="radio" value="2"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout3">3</label>
-                                        <input id="Shakeout3" type="radio" value="3"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout3">3</label>
+                                        <input id="Fieldlayout3" type="radio" value="3"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout4">4</label>
-                                        <input id="Shakeout4" type="radio" value="4"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout4">4</label>
+                                        <input id="Fieldlayout4" type="radio" value="4"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
                                         <label for="Sakeout5">5</label>
-                                        <input id="Shakeout5" type="radio" value="5"
-                                               name="skill-shakeout">
+                                        <input id="Fieldlayout5" type="radio" value="5"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout6">6</label>
-                                        <input id="Shakeout6" type="radio" value="6"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout6">6</label>
+                                        <input id="Fieldlayout6" type="radio" value="6"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout7">7</label>
-                                        <input id="Shakeout7" type="radio" value="7"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout7">7</label>
+                                        <input id="Fieldlayout7" type="radio" value="7"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout8">8</label>
-                                        <input id="Shakeout8" type="radio" value="8"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout8">8</label>
+                                        <input id="Fieldlayout8" type="radio" value="8"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout9">9</label>
-                                        <input id="Shakeout9" type="radio" value="9"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout9">9</label>
+                                        <input id="Fieldlayout9" type="radio" value="9"
+                                               name="skill-fieldlayout">
                                     </li>
                                     <li>
-                                        <label for="Shakeout10">10</label>
-                                        <input id="Shakeout10" type="radio" value="10"
-                                               name="skill-shakeout">
+                                        <label for="Fieldlayout10">10</label>
+                                        <input id="Fieldlayout10" type="radio" value="10"
+                                               name="skill-fieldlayout">
                                     </li>
                                 </ul>
                             </div>
@@ -434,180 +448,66 @@ get_header();
                                 </ul>
                             </div>
 
-                            <!-- Columns -->
+                            <!-- Shop Layout Fit Up -->
                             <div class="skill-row">
-                                <p><?php _e('Columns', 'laborapp');?></p>
+                                <p><?php _e('Shop Layout Fit Up', 'laborapp');?></p>
                                 <ul>
                                     <li>
-                                        <label for="columns1">1</label>
-                                        <input id="columns1" type="radio" value="1"
-                                               name="skill-columns">
+                                        <label for="shoplayout1">1</label>
+                                        <input id="shoplayout1" type="radio" value="1"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns2">2</label>
-                                        <input id="columns2" type="radio" value="2"
-                                               name="skill-columns">
+                                        <label for="shoplayout2">2</label>
+                                        <input id="shoplayout2" type="radio" value="2"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns3">3</label>
-                                        <input id="columns3" type="radio" value="3"
-                                               name="skill-columns">
+                                        <label for="shoplayout3">3</label>
+                                        <input id="shoplayout3" type="radio" value="3"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns4">4</label>
-                                        <input id="columns4" type="radio" value="4"
-                                               name="skill-columns">
+                                        <label for="shoplayout4">4</label>
+                                        <input id="shoplayout4" type="radio" value="4"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns5">5</label>
-                                        <input id="columns5" type="radio" value="5"
-                                               name="skill-columns">
+                                        <label for="shoplayout5">5</label>
+                                        <input id="shoplayout5" type="radio" value="5"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns6">6</label>
-                                        <input id="columns6" type="radio" value="6"
-                                               name="skill-columns">
+                                        <label for="shoplayout6">6</label>
+                                        <input id="shoplayout6" type="radio" value="6"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns7">7</label>
-                                        <input id="columns7" type="radio" value="7"
-                                               name="skill-columns">
+                                        <label for="shoplayout7">7</label>
+                                        <input id="shoplayout7" type="radio" value="7"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns8">8</label>
-                                        <input id="columns8" type="radio" value="8"
-                                               name="skill-columns">
+                                        <label for="shoplayout8">8</label>
+                                        <input id="shoplayout8" type="radio" value="8"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns9">9</label>
-                                        <input id="columns9" type="radio" value="9"
-                                               name="skill-columns">
+                                        <label for="shoplayout9">9</label>
+                                        <input id="shoplayout9" type="radio" value="9"
+                                               name="skill-shoplayout">
                                     </li>
                                     <li>
-                                        <label for="columns10">10</label>
-                                        <input id="columns10" type="radio" value="10"
-                                               name="skill-columns">
+                                        <label for="shoplayout10">10</label>
+                                        <input id="shoplayout10" type="radio" value="10"
+                                               name="skill-shoplayout">
                                     </li>
                                 </ul>
                             </div>
 
-                            <!-- Beams -->
+                            <!-- Joist / Deck -->
                             <div class="skill-row">
-                                <p><?php _e('Beams', 'laborapp');?></p>
-                                <ul>
-                                    <li>
-                                        <label for="beams1">1</label>
-                                        <input id="beams1" type="radio" value="1"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams2">2</label>
-                                        <input id="beams2" type="radio" value="2"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams3">3</label>
-                                        <input id="beams3" type="radio" value="3"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams4">4</label>
-                                        <input id="beams4" type="radio" value="4"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams5">5</label>
-                                        <input id="beams5" type="radio" value="5"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams6">6</label>
-                                        <input id="beams6" type="radio" value="6"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams7">7</label>
-                                        <input id="beams7" type="radio" value="7"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams8">8</label>
-                                        <input id="beams8" type="radio" value="8"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams9">9</label>
-                                        <input id="beams9" type="radio" value="9"
-                                               name="skill-beams">
-                                    </li>
-                                    <li>
-                                        <label for="beams10">10</label>
-                                        <input id="beams10" type="radio" value="10"
-                                               name="skill-beams">
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Ledger -->
-                            <div class="skill-row">
-                                <p><?php _e('Ledger', 'laborapp');?></p>
-                                <ul>
-                                    <li>
-                                        <label for="ledger1">1</label>
-                                        <input id="ledger1" type="radio" value="1"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger2">2</label>
-                                        <input id="ledger2" type="radio" value="2"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger3">3</label>
-                                        <input id="ledger3" type="radio" value="3"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger4">4</label>
-                                        <input id="ledger4" type="radio" value="4"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger5">5</label>
-                                        <input id="ledger5" type="radio" value="5"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger6">6</label>
-                                        <input id="ledger6" type="radio" value="6"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger7">7</label>
-                                        <input id="ledger7" type="radio" value="7"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger8">8</label>
-                                        <input id="ledger8" type="radio" value="8"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger9">9</label>
-                                        <input id="ledger9" type="radio" value="9"
-                                               name="skill-ledger">
-                                    </li>
-                                    <li>
-                                        <label for="ledger10">10</label>
-                                        <input id="ledger10" type="radio" value="10"
-                                               name="skill-ledger">
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Joist / Girters -->
-                            <div class="skill-row">
-                                <p><?php _e('Joist / Girters', 'laborapp');?></p>
+                                <p><?php _e('Joist / Deck', 'laborapp');?></p>
                                 <ul>
                                     <li>
                                         <label for="joist1">1</label>
@@ -662,179 +562,416 @@ get_header();
                                 </ul>
                             </div>
 
-                            <!-- Bridging / Frames -->
+                            <!-- Weld Deck -->
                             <div class="skill-row">
-                                <p><?php _e('Bridging / Frames', 'laborapp');?></p>
+                                <p><?php _e('Weld Deck', 'laborapp');?></p>
                                 <ul>
                                     <li>
-                                        <label for="bridging1">1</label>
-                                        <input id="bridging1" type="radio" value="1"
-                                               name="skill-bridging">
+                                        <label for="weldeck1">1</label>
+                                        <input id="weldeck1" type="radio" value="1"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging2">2</label>
-                                        <input id="bridging2" type="radio" value="2"
-                                               name="skill-bridging">
+                                        <label for="weldeck2">2</label>
+                                        <input id="weldeck2" type="radio" value="2"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging3">3</label>
-                                        <input id="bridging3" type="radio" value="3"
-                                               name="skill-bridging">
+                                        <label for="weldeck3">3</label>
+                                        <input id="weldeck3" type="radio" value="3"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging4">4</label>
-                                        <input id="bridging4" type="radio" value="4"
-                                               name="skill-bridging">
+                                        <label for="weldeck4">4</label>
+                                        <input id="weldeck4" type="radio" value="4"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging5">5</label>
-                                        <input id="bridging5" type="radio" value="5"
-                                               name="skill-bridging">
+                                        <label for="weldeck5">5</label>
+                                        <input id="weldeck5" type="radio" value="5"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging6">6</label>
-                                        <input id="bridging6" type="radio" value="6"
-                                               name="skill-bridging">
+                                        <label for="weldeck6">6</label>
+                                        <input id="weldeck6" type="radio" value="6"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging7">7</label>
-                                        <input id="bridging7" type="radio" value="7"
-                                               name="skill-bridging">
+                                        <label for="weldeck7">7</label>
+                                        <input id="weldeck7" type="radio" value="7"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging8">8</label>
-                                        <input id="bridging8" type="radio" value="8"
-                                               name="skill-bridging">
+                                        <label for="weldeck8">8</label>
+                                        <input id="weldeck8" type="radio" value="8"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging9">9</label>
-                                        <input id="bridging9" type="radio" value="9"
-                                               name="skill-bridging">
+                                        <label for="weldeck9">9</label>
+                                        <input id="weldeck9" type="radio" value="9"
+                                               name="skill-weldeck">
                                     </li>
                                     <li>
-                                        <label for="bridging10">10</label>
-                                        <input id="bridging10" type="radio" value="10"
-                                               name="skill-bridging">
+                                        <label for="weldeck10">10</label>
+                                        <input id="weldeck10" type="radio" value="10"
+                                               name="skill-weldeck">
                                     </li>
                                 </ul>
                             </div>
 
-                            <!-- Place Deck -->
+                            <!-- Stairs and Rail -->
                             <div class="skill-row">
-                                <p><?php _e('Place Deck', 'laborapp');?></p>
+                                <p><?php _e('Stairs and Rail', 'laborapp');?></p>
                                 <ul>
                                     <li>
-                                        <label for="placedeck1">1</label>
-                                        <input id="placedeck1" type="radio" value="1"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails1">1</label>
+                                        <input id="stairsrails1" type="radio" value="1"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck2">2</label>
-                                        <input id="placedeck2" type="radio" value="2"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails2">2</label>
+                                        <input id="stairsrails2" type="radio" value="2"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck3">3</label>
-                                        <input id="placedeck3" type="radio" value="3"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails3">3</label>
+                                        <input id="stairsrails3" type="radio" value="3"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck4">4</label>
-                                        <input id="placedeck4" type="radio" value="4"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails4">4</label>
+                                        <input id="stairsrails4" type="radio" value="4"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck5">5</label>
-                                        <input id="placedeck5" type="radio" value="5"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails5">5</label>
+                                        <input id="stairsrails5" type="radio" value="5"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck6">6</label>
-                                        <input id="placedeck6" type="radio" value="6"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails6">6</label>
+                                        <input id="stairsrails6" type="radio" value="6"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck7">7</label>
-                                        <input id="placedeck7" type="radio" value="7"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails7">7</label>
+                                        <input id="stairsrails7" type="radio" value="7"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck8">8</label>
-                                        <input id="placedeck8" type="radio" value="8"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails8">8</label>
+                                        <input id="stairsrails8" type="radio" value="8"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck9">9</label>
-                                        <input id="placedeck9" type="radio" value="9"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails9">9</label>
+                                        <input id="stairsrails9" type="radio" value="9"
+                                               name="skill-stairsrails">
                                     </li>
                                     <li>
-                                        <label for="placedeck10">10</label>
-                                        <input id="placedeck10" type="radio" value="10"
-                                               name="skill-placedeck">
+                                        <label for="stairsrails10">10</label>
+                                        <input id="stairsrails10" type="radio" value="10"
+                                               name="skill-stairsrails">
                                     </li>
                                 </ul>
                             </div>
 
-                            <!-- Attach Deck -->
+                            <!-- Familiar with AISC, AWS, Codes -->
                             <div class="skill-row">
-                                <p><?php _e('Attach Deck', 'laborapp');?></p>
+                                <p><?php _e('Familiar with AISC, AWS, Codes', 'laborapp');?></p>
                                 <ul>
                                     <li>
-                                        <label for="placedeck1">1</label>
-                                        <input id="attachdeck1" type="radio" value="1"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc1">1</label>
+                                        <input id="familiaraisc1" type="radio" value="1"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck2">2</label>
-                                        <input id="attachdeck2" type="radio" value="2"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc2">2</label>
+                                        <input id="familiaraisc2" type="radio" value="2"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck3">3</label>
-                                        <input id="attachdeck3" type="radio" value="3"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc3">3</label>
+                                        <input id="familiaraisc3" type="radio" value="3"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck4">4</label>
-                                        <input id="attachdeck4" type="radio" value="4"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc4">4</label>
+                                        <input id="familiaraisc4" type="radio" value="4"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck5">5</label>
-                                        <input id="attachdeck5" type="radio" value="5"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc5">5</label>
+                                        <input id="familiaraisc5" type="radio" value="5"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck6">6</label>
-                                        <input id="attachdeck6" type="radio" value="6"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc6">6</label>
+                                        <input id="familiaraisc6" type="radio" value="6"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck7">7</label>
-                                        <input id="attachdeck7" type="radio" value="7"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc7">7</label>
+                                        <input id="familiaraisc7" type="radio" value="7"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck8">8</label>
-                                        <input id="attachdeck8" type="radio" value="8"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc8">8</label>
+                                        <input id="familiaraisc8" type="radio" value="8"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck9">9</label>
-                                        <input id="attachdeck9" type="radio" value="9"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc9">9</label>
+                                        <input id="familiaraisc9" type="radio" value="9"
+                                               name="skill-familiaraisc">
                                     </li>
                                     <li>
-                                        <label for="placedeck10">10</label>
-                                        <input id="attachdeck10" type="radio" value="10"
-                                               name="skill-attachdeck">
+                                        <label for="familiaraisc10">10</label>
+                                        <input id="familiaraisc10" type="radio" value="10"
+                                               name="skill-familiaraisc">
                                     </li>
                                 </ul>
                             </div>
 
+                            <!-- Computer Programs Excel / Word -->
+                            <div class="skill-row">
+                                <p><?php _e('Computer Programs Excel / Word', 'laborapp');?></p>
+                                <ul>
+                                    <li>
+                                        <label for="computerprograms1">1</label>
+                                        <input id="computerprograms1" type="radio" value="1"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms2">2</label>
+                                        <input id="computerprograms2" type="radio" value="2"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms3">3</label>
+                                        <input id="computerprograms3" type="radio" value="3"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms4">4</label>
+                                        <input id="computerprograms4" type="radio" value="4"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms5">5</label>
+                                        <input id="computerprograms5" type="radio" value="5"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms6">6</label>
+                                        <input id="computerprograms6" type="radio" value="6"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms7">7</label>
+                                        <input id="computerprograms7" type="radio" value="7"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms8">8</label>
+                                        <input id="computerprograms8" type="radio" value="8"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms9">9</label>
+                                        <input id="computerprograms9" type="radio" value="9"
+                                               name="skill-computerprograms">
+                                    </li>
+                                    <li>
+                                        <label for="computerprograms10">10</label>
+                                        <input id="computerprograms10" type="radio" value="10"
+                                               name="skill-computerprograms">
+                                    </li>
+                                </ul>
+                            </div>
 
+                            <!-- Familiar with AISC / Clark County Approved Fabricator QC Requirements -->
+                            <div class="skill-row">
+                                <p><?php _e('Familiar with AISC / Clark County Approved Fabricator QC Requirements', 'laborapp');?></p>
+                                <ul>
+                                    <li>
+                                        <label for="familiarclarkcounty1">1</label>
+                                        <input id="familiarclarkcounty1" type="radio" value="1"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty2">2</label>
+                                        <input id="familiarclarkcounty2" type="radio" value="2"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty3">3</label>
+                                        <input id="familiarclarkcounty3" type="radio" value="3"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty4">4</label>
+                                        <input id="familiarclarkcounty4" type="radio" value="4"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty5">5</label>
+                                        <input id="familiarclarkcounty5" type="radio" value="5"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty6">6</label>
+                                        <input id="familiarclarkcounty6" type="radio" value="6"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty7">7</label>
+                                        <input id="familiarclarkcounty7" type="radio" value="7"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty8">8</label>
+                                        <input id="familiarclarkcounty8" type="radio" value="8"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty9">9</label>
+                                        <input id="familiarclarkcounty9" type="radio" value="9"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                    <li>
+                                        <label for="familiarclarkcounty10">10</label>
+                                        <input id="familiarclarkcounty10" type="radio" value="10"
+                                               name="skill-familiarclarkcounty">
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            
+                            <!-- PPE -->
+                            <h4><?php _e('PPE', 'laborapp'); ?></h4>
+                            <div class="grid-two-columns">
+                                <label for="hard-hat"><?php _e('Hard Hat', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="hard-hat"
+                                       value="Hard Hat"
+                                       name="ppe-hard-hat">
 
+                                <label for="hard-vest"><?php _e('Vest', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="hard-vest"
+                                       value="Vest"
+                                       name="ppe-vest">
+
+                                <label for="safety-glasses"><?php _e('Safety Glasses', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="safety-glasses"
+                                       value="Safety Glasses"
+                                       name="ppe-safety-glasses">
+
+                                <label for="harness"><?php _e('Harness', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="harness"
+                                       value="Harness"
+                                       name="ppe-harness">
+
+                                <label for="weldy-hood"><?php _e('Weldy Hood', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="weldy-hood"
+                                       value="Weldy Hood"
+                                       name="ppe-weldy-hood">
+
+                            </div>
+
+                            <!-- TOOLS -->
+                            <h4><?php _e('Tools', 'laborapp'); ?></h4>
+                            <div class="grid-two-columns">
+                                <label for="tape-measure"><?php _e('Tape Measure', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="tape-measure"
+                                       value="Tape Measure"
+                                       name="tools-tape-measure">
+
+                                <label for="spud-wrench"><?php _e('Spud Wrench', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="spud-wrench"
+                                       value="Spud Wrench"
+                                       name="tools-spud-wrench">
+
+                                <label for="sleeve-tool"><?php _e('Sleeve Tool', 'laborapp'); ?></label>
+                                <input type="checkbox"
+                                       id="sleeve-tool"
+                                       value="Sleeve Tool"
+                                       name="tools-sleeve-tool">
+                            </div>
+
+                            <!-- HISTORY -->
+                            <h4><?php _e('Work History', 'laborapp'); ?></h4>
+                            <div class="grid-two-columns">
+                                <label for="steel-shop"><?php _e('Years in Steel Shop', 'laborapp'); ?></label>
+                                <input type="text"
+                                       id="steel-shop"
+                                       name="history-steel-shop">
+
+                                <label for="harness-steel"><?php _e('Years in Field Hanging Steel', 'laborapp');?></label>
+                                <input type="text"
+                                       id="harness-steel"
+                                       name="history-harness-steel">
+                            </div>
+
+                            <!-- PRIOR JOBS -->
+                            <h4><?php _e('Prior Steel Companies', 'laborapp'); ?></h4>
+                            <h6><?php _e('Company', 'laborapp'); ?> 1</h6>
+                            <div class="personal-info-section">
+                                <input type="text"
+                                       placeholder="<?php _e('Company Name', 'laborapp'); ?>"
+                                       id="company1name"
+                                       name="company1[name]">
+                                <input type="text"
+                                       placeholder="<?php _e('Years Worked', 'laborapp'); ?>"
+                                       id="company1time"
+                                       name="company1[time]">
+                                <input type="text"
+                                       placeholder="<?php _e('Wage', 'laborapp'); ?>"
+                                       id="company1wage"
+                                       name="company1[wage]">
+                            </div>
+
+                            <hr/>
+
+                            <h6><?php _e('Company', 'laborapp'); ?> 2</h6>
+                            <div class="personal-info-section">
+                                <input type="text"
+                                       placeholder="<?php _e('Company Name', 'laborapp'); ?>"
+                                       id="company2name"
+                                       name="company2[name]">
+                                <input type="text"
+                                       placeholder="<?php _e('Years Worked', 'laborapp'); ?>"
+                                       id="company2time"
+                                       name="company2[time]">
+                                <input type="text"
+                                       placeholder="<?php _e('Wage', 'laborapp'); ?>"
+                                       id="company2wage"
+                                       name="company2[wage]">
+                            </div>
+
+                            <hr/>
+
+                            <h6><?php _e('Company', 'laborapp'); ?> 3</h6>
+                            <div class="personal-info-section">
+                                <input type="text"
+                                       placeholder="<?php _e('Company Name', 'laborapp'); ?>"
+                                       id="company3name"
+                                       name="company3[name]">
+                                <input type="text"
+                                       placeholder="<?php _e('Years Worked', 'laborapp'); ?>"
+                                       id="company3time"
+                                       name="company3[time]">
+                                <input type="text"
+                                       placeholder="<?php _e('Wage', 'laborapp'); ?>"
+                                       id="company3wage"
+                                       name="company3[wage]">
+                            </div>
 
 
                             <!-- Leading and training ( checkbox ) -->
@@ -863,13 +1000,14 @@ get_header();
 
 
                             <!-- Other info ( textbox )-->
-                            <h4><?php _e('More', 'laborapp');?></h4>
+                            <h4><?php _e('More Info', 'laborapp');?></h4>
                             <p><?php _e('Other helpful information about yourself', 'laborapp'); ?></p>
                             <textarea name="more-info"></textarea>
 
+                            <p><?php _e('If Hired, When would you be available?', 'laborapp'); ?></p>
+                            <textarea name="available"></textarea>
 
                             <input type="hidden" name="action" value="new_hire_form">
-
 
                             <div class="submit-btn">
                                 <input type="submit" value="<?php _e('Register', 'laborapp'); ?>" class="labor-btn mt-1">

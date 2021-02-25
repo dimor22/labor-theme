@@ -335,10 +335,52 @@
             $('#percentage-completed').attr("placeholder", "less or equal to "+ dailyMax +"%");
           }
 
+          function getProjectTasks() {
+            let projectSelectedId = $('#project-input').children("option:selected").val();
+            console.log('id before ajax: ' + projectSelectedId);
+            let tasksSection = $('#js-tasks-completed-today-section');
+
+            $.ajax({
+              url : labor_form_ajax.ajax_url,
+              type : 'post',
+              data : {
+                action : 'get_project_tasks',
+                payload : projectSelectedId
+              },
+              success : function( tasks ) {
+
+                let taskTemplate = '';
+
+                if ( tasks.length > 0 ) {
+                  tasks.forEach( function (task){
+
+                    taskTemplate += `<div class="tasks-completed-foreman-form-row">
+                                            <div class="tasks-completed-foreman-form-row__name">${task.taskList.name}</div>
+                                            <div class="tasks-completed-foreman-form-row__total">${task.taskList.total}</div>
+                                            <div class="tasks-completed-foreman-form-row__ttd">${task.taskList.ttd}</div>
+                                            <div class="tasks-completed-foreman-form-row__today">
+                                                <input type="tel"
+                                                       id="task_ttd_${task.taskList.name.replace(/\s/g, '-').toLowerCase()}"
+                                                       name="task_ttd_${task.taskList.name.replace(/\s/g, '-').toLowerCase()}">
+                                            </div>
+                                        </div>`;
+                  });
+                  tasksSection.html(taskTemplate);
+                } else {
+                  tasksSection.html('<p>No tasks have been assigned to this project yet.</p>');
+                }
+              }
+            });
+
+          }
+
           getProjectInfo();
+
+          getProjectTasks();
           
           $('#project-input').change( function() {
             getProjectInfo();
+            getProjectTasks();
           });
           
         },

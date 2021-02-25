@@ -22,7 +22,6 @@ function extra_user_profile_fields( $user ) { ?>
                     <label for="osha10">Osha 10</label>
                     <input type="checkbox"
                            id="osha10"
-                           value="osha10"
                             <?php if ( ! empty( get_the_author_meta( 'cert-osha10', $user->ID ) ) ) : ?>
                                 checked="checked"
                             <?php endif;?>
@@ -31,7 +30,6 @@ function extra_user_profile_fields( $user ) { ?>
                     <label for="osha30">Osha 30</label>
                     <input id="osha30"
                            type="checkbox"
-                           value="osha30"
                         <?php if ( ! empty( get_the_author_meta( 'cert-osha30', $user->ID ) ) ) : ?>
                             checked="checked"
                         <?php endif;?>
@@ -40,7 +38,6 @@ function extra_user_profile_fields( $user ) { ?>
                     <label for="forkliftCert">Forklift Cert</label>
                     <input id="forkliftCert"
                            type="checkbox"
-                           value="forkliftCert"
                             <?php if ( ! empty( get_the_author_meta( 'cert-forkliftCert', $user->ID ) ) ) : ?>
                                 checked="checked"
                             <?php endif;?>
@@ -49,7 +46,6 @@ function extra_user_profile_fields( $user ) { ?>
                     <label for="manliftCert">Manlift Cert</label>
                     <input id="manliftCert"
                            type="checkbox"
-                           value="manliftCert"
                             <?php if ( ! empty( get_the_author_meta( 'cert-manliftCert', $user->ID ) ) ) : ?>
                                 checked="checked"
                             <?php endif;?>
@@ -58,7 +54,6 @@ function extra_user_profile_fields( $user ) { ?>
                     <label for="welderCert">Welder Cert</label>
                     <input id="welderCert"
                            type="checkbox"
-                           value="welderCert"
                             <?php if ( ! empty( get_the_author_meta( 'cert-welderCert', $user->ID ) ) ) : ?>
                                 checked="checked"
                             <?php endif;?>
@@ -258,89 +253,89 @@ function extra_user_profile_fields( $user ) { ?>
                     </ul>
                 </div>
 
-                <!-- Shakeout / Layout -->
+                <!-- Field / Layout -->
                 <div class="skill-row">
-                    <p><?php _e('Shakeout / Layout', 'laborapp');?></p>
+                    <p><?php _e('Field / Layout', 'laborapp');?></p>
                     <ul>
                         <li>
-                            <label for="Shakeout1">1</label>
-                            <input id="Shakeout1" type="radio" value="1"
-                                <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 1 ) : ?>
+                            <label for="fieldlayout1">1</label>
+                            <input id="fieldlayout1" type="radio" value="1"
+                                <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 1 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout2">2</label>
-                            <input id="Shakeout2" type="radio" value="2"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 2 ) : ?>
+                            <label for="fieldlayout2">2</label>
+                            <input id="fieldlayout2" type="radio" value="2"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 2 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout3">3</label>
-                            <input id="Shakeout3" type="radio" value="3"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 3 ) : ?>
+                            <label for="fieldlayout3">3</label>
+                            <input id="fieldlayout3" type="radio" value="3"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 3 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout4">4</label>
-                            <input id="Shakeout4" type="radio" value="4"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 4 ) : ?>
+                            <label for="fieldlayout4">4</label>
+                            <input id="fieldlayout4" type="radio" value="4"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 4 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
                             <label for="Sakeout5">5</label>
-                            <input id="Shakeout5" type="radio" value="5"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 5 ) : ?>
+                            <input id="fieldlayout5" type="radio" value="5"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 5 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout6">6</label>
-                            <input id="Shakeout6" type="radio" value="6"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 6 ) : ?>
+                            <label for="fieldlayout6">6</label>
+                            <input id="fieldlayout6" type="radio" value="6"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 6 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout7">7</label>
-                            <input id="Shakeout7" type="radio" value="7"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 7 ) : ?>
+                            <label for="fieldlayout7">7</label>
+                            <input id="fieldlayout7" type="radio" value="7"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 7 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout8">8</label>
-                            <input id="Shakeout8" type="radio" value="8"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 8 ) : ?>
+                            <label for="fieldlayout8">8</label>
+                            <input id="fieldlayout8" type="radio" value="8"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 8 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout9">9</label>
-                            <input id="Shakeout9" type="radio" value="9"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 9 ) : ?>
+                            <label for="fieldlayout9">9</label>
+                            <input id="fieldlayout9" type="radio" value="9"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 9 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                         <li>
-                            <label for="Shakeout10">10</label>
-                            <input id="Shakeout10" type="radio" value="10"
-                                   <?php if ( get_the_author_meta( 'skill-shakeout', $user->ID ) == 10 ) : ?>
+                            <label for="fieldlayout10">10</label>
+                            <input id="fieldlayout10" type="radio" value="10"
+                                   <?php if ( get_the_author_meta( 'skill-fieldlayout', $user->ID ) == 10 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-shakeout">
+                                   name="skill-fieldlayout">
                         </li>
                     </ul>
                 </div>
@@ -606,270 +601,96 @@ function extra_user_profile_fields( $user ) { ?>
                     </ul>
                 </div>
 
-                <!-- Columns -->
+                <!-- Shop Layout -->
                 <div class="skill-row">
-                    <p><?php _e('Columns', 'laborapp');?></p>
+                    <p><?php _e('Shop Layout Fit Up', 'laborapp');?></p>
                     <ul>
                         <li>
-                            <label for="columns1">1</label>
-                            <input id="columns1" type="radio" value="1"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 1 ) : ?>
+                            <label for="shoplayout1">1</label>
+                            <input id="shoplayout1" type="radio" value="1"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 1 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns2">2</label>
-                            <input id="columns2" type="radio" value="2"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 2 ) : ?>
+                            <label for="shoplayout2">2</label>
+                            <input id="shoplayout2" type="radio" value="2"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 2 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns3">3</label>
-                            <input id="columns3" type="radio" value="3"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 3 ) : ?>
+                            <label for="shoplayout3">3</label>
+                            <input id="shoplayout3" type="radio" value="3"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 3 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns4">4</label>
-                            <input id="columns4" type="radio" value="4"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 4 ) : ?>
+                            <label for="shoplayout4">4</label>
+                            <input id="shoplayout4" type="radio" value="4"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 4 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns5">5</label>
-                            <input id="columns5" type="radio" value="5"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 5 ) : ?>
+                            <label for="shoplayout5">5</label>
+                            <input id="shoplayout5" type="radio" value="5"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 5 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns6">6</label>
-                            <input id="columns6" type="radio" value="6"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 6 ) : ?>
+                            <label for="shoplayout6">6</label>
+                            <input id="shoplayout6" type="radio" value="6"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 6 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns7">7</label>
-                            <input id="columns7" type="radio" value="7"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 7 ) : ?>
+                            <label for="shoplayout7">7</label>
+                            <input id="shoplayout7" type="radio" value="7"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 7 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns8">8</label>
-                            <input id="columns8" type="radio" value="8"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 8 ) : ?>
+                            <label for="shoplayout8">8</label>
+                            <input id="shoplayout8" type="radio" value="8"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 8 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns9">9</label>
-                            <input id="columns9" type="radio" value="9"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 9 ) : ?>
+                            <label for="shoplayout9">9</label>
+                            <input id="shoplayout9" type="radio" value="9"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 9 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                         <li>
-                            <label for="columns10">10</label>
-                            <input id="columns10" type="radio" value="10"
-                                <?php if ( get_the_author_meta( 'skill-columns', $user->ID ) == 10 ) : ?>
+                            <label for="shoplayout10">10</label>
+                            <input id="shoplayout10" type="radio" value="10"
+                                <?php if ( get_the_author_meta( 'skill-shoplayout', $user->ID ) == 10 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-columns">
+                                   name="skill-shoplayout">
                         </li>
                     </ul>
                 </div>
 
-                <!-- Beams -->
+                <!-- Joist / Deck -->
                 <div class="skill-row">
-                    <p><?php _e('Beams', 'laborapp');?></p>
-                    <ul>
-                        <li>
-                            <label for="beams1">1</label>
-                            <input id="beams1" type="radio" value="1"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 1 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams2">2</label>
-                            <input id="beams2" type="radio" value="2"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 2 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams3">3</label>
-                            <input id="beams3" type="radio" value="3"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 3 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams4">4</label>
-                            <input id="beams4" type="radio" value="4"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 4 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams5">5</label>
-                            <input id="beams5" type="radio" value="5"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 5 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams6">6</label>
-                            <input id="beams6" type="radio" value="6"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 6 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams7">7</label>
-                            <input id="beams7" type="radio" value="7"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 7 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams8">8</label>
-                            <input id="beams8" type="radio" value="8"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 8 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams9">9</label>
-                            <input id="beams9" type="radio" value="9"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 9 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                        <li>
-                            <label for="beams10">10</label>
-                            <input id="beams10" type="radio" value="10"
-                                <?php if ( get_the_author_meta( 'skill-beams', $user->ID ) == 10 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-beams">
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Ledger -->
-                <div class="skill-row">
-                    <p><?php _e('Ledger', 'laborapp');?></p>
-                    <ul>
-                        <li>
-                            <label for="ledger1">1</label>
-                            <input id="ledger1" type="radio" value="1"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 1 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger2">2</label>
-                            <input id="ledger2" type="radio" value="2"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 2 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger3">3</label>
-                            <input id="ledger3" type="radio" value="3"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 3 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger4">4</label>
-                            <input id="ledger4" type="radio" value="4"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 4 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger5">5</label>
-                            <input id="ledger5" type="radio" value="5"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 5 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger6">6</label>
-                            <input id="ledger6" type="radio" value="6"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 6 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger7">7</label>
-                            <input id="ledger7" type="radio" value="7"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 7 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger8">8</label>
-                            <input id="ledger8" type="radio" value="8"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 8 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger9">9</label>
-                            <input id="ledger9" type="radio" value="9"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 9 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                        <li>
-                            <label for="ledger10">10</label>
-                            <input id="ledger10" type="radio" value="10"
-                                <?php if ( get_the_author_meta( 'skill-ledger', $user->ID ) == 10 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-ledger">
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Joist / Girters -->
-                <div class="skill-row">
-                    <p><?php _e('Joist / Girters', 'laborapp');?></p>
+                    <p><?php _e('Joist / Deck', 'laborapp');?></p>
                     <ul>
                         <li>
                             <label for="joist1">1</label>
@@ -954,265 +775,289 @@ function extra_user_profile_fields( $user ) { ?>
                     </ul>
                 </div>
 
-                <!-- Bridging / Frames -->
+
+                <!-- Weld Deck -->
                 <div class="skill-row">
-                    <p><?php _e('Bridging / Frames', 'laborapp');?></p>
+                    <p><?php _e('Weld Deck', 'laborapp');?></p>
                     <ul>
                         <li>
-                            <label for="bridging1">1</label>
-                            <input id="bridging1" type="radio" value="1"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 1 ) : ?>
+                            <label for="weldeck1">1</label>
+                            <input id="weldeck1" type="radio" value="1"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 1 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging2">2</label>
-                            <input id="bridging2" type="radio" value="2"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 2 ) : ?>
+                            <label for="weldeck2">2</label>
+                            <input id="weldeck2" type="radio" value="2"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 2 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging3">3</label>
-                            <input id="bridging3" type="radio" value="3"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 3 ) : ?>
+                            <label for="weldeck3">3</label>
+                            <input id="weldeck3" type="radio" value="3"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 3 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging4">4</label>
-                            <input id="bridging4" type="radio" value="4"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 4 ) : ?>
+                            <label for="weldeck4">4</label>
+                            <input id="weldeck4" type="radio" value="4"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 4 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging5">5</label>
-                            <input id="bridging5" type="radio" value="5"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 5 ) : ?>
+                            <label for="weldeck5">5</label>
+                            <input id="weldeck5" type="radio" value="5"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 5 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging6">6</label>
-                            <input id="bridging6" type="radio" value="6"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 6 ) : ?>
+                            <label for="weldeck6">6</label>
+                            <input id="weldeck6" type="radio" value="6"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 6 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging7">7</label>
-                            <input id="bridging7" type="radio" value="7"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 7 ) : ?>
+                            <label for="weldeck7">7</label>
+                            <input id="weldeck7" type="radio" value="7"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 7 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging8">8</label>
-                            <input id="bridging8" type="radio" value="8"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 8 ) : ?>
+                            <label for="weldeck8">8</label>
+                            <input id="weldeck8" type="radio" value="8"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 8 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging9">9</label>
-                            <input id="bridging9" type="radio" value="9"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 9 ) : ?>
+                            <label for="weldeck9">9</label>
+                            <input id="weldeck9" type="radio" value="9"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 9 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                         <li>
-                            <label for="bridging10">10</label>
-                            <input id="bridging10" type="radio" value="10"
-                                <?php if ( get_the_author_meta( 'skill-bridging', $user->ID ) == 10 ) : ?>
+                            <label for="weldeck10">10</label>
+                            <input id="weldeck10" type="radio" value="10"
+                                <?php if ( get_the_author_meta( 'skill-weldeck', $user->ID ) == 10 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-bridging">
+                                   name="skill-weldeck">
                         </li>
                     </ul>
                 </div>
 
-                <!-- Place Deck -->
+                <!-- Stairs and Rails -->
                 <div class="skill-row">
-                    <p><?php _e('Place Deck', 'laborapp');?></p>
+                    <p><?php _e('Stairs and Rail', 'laborapp');?></p>
                     <ul>
                         <li>
-                            <label for="placedeck1">1</label>
-                            <input id="placedeck1" type="radio" value="1"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 1 ) : ?>
+                            <label for="stairsrails1">1</label>
+                            <input id="stairsrails1" type="radio" value="1"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 1 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck2">2</label>
-                            <input id="placedeck2" type="radio" value="2"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 2 ) : ?>
+                            <label for="stairsrails2">2</label>
+                            <input id="stairsrails2" type="radio" value="2"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 2 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck3">3</label>
-                            <input id="placedeck3" type="radio" value="3"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 3 ) : ?>
+                            <label for="stairsrails3">3</label>
+                            <input id="stairsrails3" type="radio" value="3"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 3 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck4">4</label>
-                            <input id="placedeck4" type="radio" value="4"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 4 ) : ?>
+                            <label for="stairsrails4">4</label>
+                            <input id="stairsrails4" type="radio" value="4"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 4 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck5">5</label>
-                            <input id="placedeck5" type="radio" value="5"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 5 ) : ?>
+                            <label for="stairsrails5">5</label>
+                            <input id="stairsrails5" type="radio" value="5"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 5 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck6">6</label>
-                            <input id="placedeck6" type="radio" value="6"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 6 ) : ?>
+                            <label for="stairsrails6">6</label>
+                            <input id="stairsrails6" type="radio" value="6"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 6 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck7">7</label>
-                            <input id="placedeck7" type="radio" value="7"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 7 ) : ?>
+                            <label for="stairsrails7">7</label>
+                            <input id="stairsrails7" type="radio" value="7"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 7 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck8">8</label>
-                            <input id="placedeck8" type="radio" value="8"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 8 ) : ?>
+                            <label for="stairsrails8">8</label>
+                            <input id="stairsrails8" type="radio" value="8"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 8 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck9">9</label>
-                            <input id="placedeck9" type="radio" value="9"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 9 ) : ?>
+                            <label for="stairsrails9">9</label>
+                            <input id="stairsrails9" type="radio" value="9"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 9 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                         <li>
-                            <label for="placedeck10">10</label>
-                            <input id="placedeck10" type="radio" value="10"
-                                <?php if ( get_the_author_meta( 'skill-placedeck', $user->ID ) == 10 ) : ?>
+                            <label for="stairsrails10">10</label>
+                            <input id="stairsrails10" type="radio" value="10"
+                                <?php if ( get_the_author_meta( 'skill-stairsrails', $user->ID ) == 10 ) : ?>
                                     checked="checked"
                                 <?php endif;?>
-                                   name="skill-placedeck">
+                                   name="skill-stairsrails">
                         </li>
                     </ul>
                 </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h3><?php _e('PPE', 'laborapp');?></h3>
+            </th>
+            <td>
+                <div class="grid-two-columns">
+                    <label for="ppe-hard-hat"><?php _e('Hard Hat', 'laborapp'); ?></label>
+                    <input id="ppe-hard-hat"
+                           type="checkbox"
+                           value="Hard Hat"
+                        <?php if ( ! empty(get_the_author_meta( 'ppe-hard-hat', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="ppe-hard-hat">
+                    <label for="ppe-vest"><?php _e('Vest', 'laborapp'); ?></label>
+                    <input id="ppe-vest"
+                           type="checkbox"
+                           value="Vest"
+                        <?php if ( !empty(get_the_author_meta( 'ppe-vest', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="ppe-vest">
+                    <label for="ppe-safety-glasses"><?php _e('Safety Glasses', 'laborapp'); ?></label>
+                    <input id="ppe-safety-glasses"
+                           type="checkbox"
+                           value="Safety Glasses"
+                        <?php if ( !empty(get_the_author_meta( 'ppe-safety-glasses', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="ppe-safety-glasses">
+                    <label for="ppe-harness"><?php _e('Harness', 'laborapp'); ?></label>
+                    <input id="ppe-harness"
+                           type="checkbox"
+                           value="Harness"
+                        <?php if ( ! empty(get_the_author_meta( 'ppe-harness', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="ppe-harness">
+                    <label for="ppe-weldy-hood"><?php _e('Weldy Hood', 'laborapp'); ?></label>
+                    <input id="ppe-weldy-hood"
+                           type="checkbox"
+                           value="Weldy Hood"
+                        <?php if ( ! empty(get_the_author_meta( 'ppe-weldy-hood', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="ppe-weldy-hood">
 
-                <!-- Attach Deck -->
-                <div class="skill-row">
-                    <p><?php _e('Attach Deck', 'laborapp');?></p>
-                    <ul>
-                        <li>
-                            <label for="placedeck1">1</label>
-                            <input id="attachdeck1" type="radio" value="1"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 1 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck2">2</label>
-                            <input id="attachdeck2" type="radio" value="2"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 2 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck3">3</label>
-                            <input id="attachdeck3" type="radio" value="3"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 3 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck4">4</label>
-                            <input id="attachdeck4" type="radio" value="4"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 4 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck5">5</label>
-                            <input id="attachdeck5" type="radio" value="5"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 5 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck6">6</label>
-                            <input id="attachdeck6" type="radio" value="6"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 6 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck7">7</label>
-                            <input id="attachdeck7" type="radio" value="7"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 7 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck8">8</label>
-                            <input id="attachdeck8" type="radio" value="8"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 8 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck9">9</label>
-                            <input id="attachdeck9" type="radio" value="9"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 9 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                        <li>
-                            <label for="placedeck10">10</label>
-                            <input id="attachdeck10" type="radio" value="10"
-                                <?php if ( get_the_author_meta( 'skill-attachdeck', $user->ID ) == 10 ) : ?>
-                                    checked="checked"
-                                <?php endif;?>
-                                   name="skill-attachdeck">
-                        </li>
-                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h3><?php _e('Tools', 'laborapp');?></h3>
+            </th>
+            <td>
+                <div class="grid-two-columns">
+                    <label for="tools-tape-measure"><?php _e('Tape Measure', 'laborapp'); ?></label>
+                    <input id="tools-tape-measure"
+                           type="checkbox"
+                           value="Tape Measure"
+                        <?php if ( ! empty(get_the_author_meta( 'tools-tape-measure', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="tools-tape-measure">
+                    <label for="tools-spud-wrench"><?php _e('Spud Wrench', 'laborapp'); ?></label>
+                    <input id="tools-spud-wrench"
+                           type="checkbox"
+                           value="Spud Wrench"
+                        <?php if ( !empty(get_the_author_meta( 'tools-spud-wrench', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="tools-spud-wrench">
+                    <label for="tools-sleeve-tool"><?php _e('Sleeve tool', 'laborapp'); ?></label>
+                    <input id="tools-sleeve-tool"
+                           type="checkbox"
+                           value="Sleeve tool"
+                        <?php if ( !empty(get_the_author_meta( 'tools-sleeve-tool', $user->ID )) ) : ?>
+                            checked="checked"
+                        <?php endif;?>
+                           name="tools-sleeve-tool">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h3><?php _e('Work History', 'laborapp'); ?></h3>
+            </th>
+            <td>
+                <div class="grid-two-columns">
+                    <label for="history-steel-shop"><?php _e('Years in Steel Shop', 'laborapp'); ?>:</label>
+                    <input id="history-steel-shop"
+                           type="text"
+                        <?php if ( !empty(get_the_author_meta( 'history-steel-shop', $user->ID )) ) : ?>
+                            value="<?php echo get_the_author_meta( 'history-steel-shop', $user->ID );?>"
+                        <?php else : ?>
+                            value="0"
+                        <?php endif;?>
+                           name="history-steel-shop">
+                    <label for="history-harness-steel"><?php _e('Years in Field Hanging Steel', 'laborapp'); ?>:</label>
+                    <input id="history-harness-steel"
+                           type="text"
+                        <?php if ( !empty(get_the_author_meta( 'history-harness-steel', $user->ID )) ) : ?>
+                            value="<?php echo get_the_author_meta( 'history-harness-steel', $user->ID );?>"
+                        <?php else : ?>
+                            value="0"
+                        <?php endif;?>
+                           name="history-harness-steel">
                 </div>
             </td>
         </tr>
@@ -1222,14 +1067,14 @@ function extra_user_profile_fields( $user ) { ?>
             </th>
             <td>
                 <div class="grid-two-columns">
-                    <label for="leadership1"><?php _e('Prefer not to', 'laborapp'); ?></label>
-                    <input id="leadership1" type="radio" value="0"
+                    <label for="leadership0"><?php _e('Prefer not to', 'laborapp'); ?></label>
+                    <input id="leadership0" type="radio" value="0"
                            <?php if ( get_the_author_meta( 'leadership', $user->ID ) === 0 ) : ?>
                            checked="checked"
                            <?php endif;?>
                            name="leadership">
-                    <label for="leadership2"><?php _e('1 other person', 'laborapp'); ?></label>
-                    <input id="leadership2" type="radio" value="1"
+                    <label for="leadership1"><?php _e('1 other person', 'laborapp'); ?></label>
+                    <input id="leadership1" type="radio" value="1"
                         <?php if ( get_the_author_meta( 'leadership', $user->ID ) == 1 ) : ?>
                             checked="checked"
                         <?php endif;?>
@@ -1424,17 +1269,31 @@ function save_extra_user_profile_fields( $user_id ) {
 
     update_user_meta( $user_id, 'skill-safetyTrained', $_POST['skill-safetyTrained'] );
     update_user_meta( $user_id, 'skill-readdrawings', $_POST['skill-readdrawings'] );
-    update_user_meta( $user_id, 'skill-shakeout', $_POST['skill-shakeout'] );
+    update_user_meta( $user_id, 'skill-fieldlayout', $_POST['skill-fieldlayout'] );
     update_user_meta( $user_id, 'skill-forklift', $_POST['skill-forklift'] );
     update_user_meta( $user_id, 'skill-connector', $_POST['skill-connector'] );
     update_user_meta( $user_id, 'skill-welder', $_POST['skill-welder'] );
-    update_user_meta( $user_id, 'skill-columns', $_POST['skill-columns'] );
-    update_user_meta( $user_id, 'skill-beams', $_POST['skill-beams'] );
-    update_user_meta( $user_id, 'skill-ledger', $_POST['skill-ledger'] );
+    update_user_meta( $user_id, 'skill-shoplayout', $_POST['skill-shoplayout'] );
     update_user_meta( $user_id, 'skill-joist', $_POST['skill-joist'] );
-    update_user_meta( $user_id, 'skill-bridging', $_POST['skill-bridging'] );
-    update_user_meta( $user_id, 'skill-placedeck', $_POST['skill-placedeck'] );
-    update_user_meta( $user_id, 'skill-attachdeck', $_POST['skill-attachdeck'] );
+    update_user_meta( $user_id, 'skill-weldeck', $_POST['skill-weldeck'] );
+    update_user_meta( $user_id, 'skill-stairsrails', $_POST['skill-stairsrails'] );
+    update_user_meta($user_id, 'skill-familiaraisc', $_POST['skill-familiaraisc']);
+    update_user_meta($user_id, 'skill-computerprograms', $_POST['skill-computerprograms']);
+    update_user_meta($user_id, 'skill-familiarclarkcounty', $_POST['skill-familiarclarkcounty']);
+
+    update_user_meta($user_id, 'ppe-hard-hat', $_POST['ppe-hard-hat']);
+    update_user_meta($user_id, 'ppe-vest', $_POST['ppe-vest']);
+    update_user_meta($user_id, 'ppe-safety-glasses', $_POST['ppe-safety-glasses']);
+    update_user_meta($user_id, 'ppe-harness', $_POST['ppe-harness']);
+    update_user_meta($user_id, 'ppe-weldy-hood', $_POST['ppe-weldy-hood']);
+
+    update_user_meta($user_id, 'tools-tape-measure', $_POST['tools-tape-measure']);
+    update_user_meta($user_id, 'tools-spud-wrench', $_POST['tools-spud-wrench']);
+    update_user_meta($user_id, 'tools-sleeve-tool', $_POST['tools-sleeve-tool']);
+
+    update_user_meta($user_id, 'history-steel-shop', $_POST['history-steel-shop']);
+    update_user_meta($user_id, 'history-harness-steel', $_POST['history-harness-steel']);
+
 
     update_user_meta( $user_id, 'leadership', $_POST['leadership'] );
     update_user_meta( $user_id, 'more-info', $_POST['more-info'] );

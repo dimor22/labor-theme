@@ -26,6 +26,11 @@ function new_hire_form_func()
         'user_pass'     => $fd['password']
     );
 
+    // ** NICKNAME IS OPTIONAL ** //
+    if ( ! empty($fd['nickname']) ) {
+        $userdata['nickname'] = $fd['nickname'];
+    }
+
     $user_id = wp_insert_user( $userdata ) ;
 
     // On Error.
@@ -44,17 +49,32 @@ function new_hire_form_func()
 
     update_user_meta($user_id, 'skill-safetyTrained', $fd['skill-safetyTrained']);
     update_user_meta($user_id, 'skill-readdrawings', $fd['skill-readdrawings']);
-    update_user_meta($user_id, 'skill-shakeout', $fd['skill-shakeout']);
+    update_user_meta($user_id, 'skill-fieldlayout', $fd['skill-fieldlayout']);
     update_user_meta($user_id, 'skill-forklift', $fd['skill-forklift']);
     update_user_meta($user_id, 'skill-connector', $fd['skill-connector']);
     update_user_meta($user_id, 'skill-welder', $fd['skill-welder']);
-    update_user_meta($user_id, 'skill-columns', $fd['skill-columns']);
-    update_user_meta($user_id, 'skill-beams', $fd['skill-beams']);
-    update_user_meta($user_id, 'skill-ledger', $fd['skill-ledger']);
+    update_user_meta($user_id, 'skill-shoplayout', $fd['skill-shoplayout']);
     update_user_meta($user_id, 'skill-joist', $fd['skill-joist']);
-    update_user_meta($user_id, 'skill-bridging', $fd['skill-bridging']);
-    update_user_meta($user_id, 'skill-placedeck', $fd['skill-placedeck']);
-    update_user_meta($user_id, 'skill-attachdeck', $fd['skill-attachdeck']);
+    update_user_meta($user_id, 'skill-weldeck', $fd['skill-weldeck']);
+    update_user_meta($user_id, 'skill-stairsrails', $fd['skill-stairsrails']);
+    update_user_meta($user_id, 'skill-familiaraisc', $fd['skill-familiaraisc']);
+    update_user_meta($user_id, 'skill-computerprograms', $fd['skill-computerprograms']);
+    update_user_meta($user_id, 'skill-familiarclarkcounty', $fd['skill-familiarclarkcounty']);
+
+    update_user_meta($user_id, 'ppe-hard-hat', $fd['ppe-hard-hat']);
+    update_user_meta($user_id, 'ppe-vest', $fd['ppe-vest']);
+    update_user_meta($user_id, 'ppe-safety-glasses', $fd['ppe-safety-glasses']);
+    update_user_meta($user_id, 'ppe-harness', $fd['ppe-harness']);
+    update_user_meta($user_id, 'ppe-weldy-hood', $fd['ppe-weldy-hood']);
+
+    update_user_meta($user_id, 'tools-tape-measure', $fd['tools-tape-measure']);
+    update_user_meta($user_id, 'tools-spud-wrench', $fd['tools-spud-wrench']);
+    update_user_meta($user_id, 'tools-sleeve-tool', $fd['tools-sleeve-tool']);
+
+    update_user_meta($user_id, 'history-steel-shop', $fd['history-steel-shop']);
+    update_user_meta($user_id, 'history-harness-steel', $fd['history-harness-steel']);
+
+
 
     update_user_meta($user_id, 'cert-osha10', $fd['cert-osha10']);
     update_user_meta($user_id, 'cert-osha30', $fd['cert-osha30']);

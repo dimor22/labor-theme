@@ -276,6 +276,24 @@ function foreman_daily_form_func() {
         if ( $project_form_insert === false ) {
             $errors[] = 'Failed updating project progress field.';
         }
+
+        // ****************************************
+        // PROJECT - SAVE TO PROJECT META DATA
+        // ****************************************
+
+        foreach ( $fd as $field_name => $field_value ) {
+            if ( strpos($field_name, "task_ttd_") !== false ) {
+                $old_value = get_post_meta($fd['project-id'], $field_name, true);
+                if ( empty($old_value) ) {
+                    $old_value = 0;
+                } else {
+                    $field_value = intval($field_value) + intval($old_value);
+                }
+
+                update_post_meta($fd['project-id'], $field_name, $field_value);
+            }
+        }
+
         //add_post_meta( $fd['project-id'], 'project_daily_form', $data );
 
     } else {

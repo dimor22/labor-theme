@@ -48,6 +48,9 @@ unset($file, $filepath);
  */
 
 
+/**
+ * AJAX CALL TO GET TEAM MEMBERS
+ */
 function get_team_members_func() {
 
     // Becuase this call returns a single result it needs to be added to an array
@@ -63,6 +66,38 @@ function get_team_members_func() {
 	echo wp_send_json( $full_team );
 }
 add_action( 'wp_ajax_get_team_members', 'get_team_members_func' );
+
+/**
+ * AJAX CALL TO GET PROJECT TASKS
+ */
+function get_project_tasks_func() {
+
+    $project_id = $_REQUEST['payload'];
+
+    $project_tasks = [];
+
+    if( have_rows('project_tasks', $project_id) ) {
+        while (have_rows('project_tasks', $project_id)) {
+            the_row();
+            $task_name = get_sub_field('project_task_name');
+            $task_total = get_sub_field('project_task_count');
+            $task_ttd = get_post_meta($project_id, "task_ttd_" . strtolower(str_replace(" ", "-", $task_name)), true);
+
+            $project_tasks[] = [
+                'projectId' => $project_id,
+                'projectName' => 'title placeholder',
+                'taskList'  => [
+                    'name' => $task_name,
+                    'total' => $task_total,
+                    'ttd'   => $task_ttd != false ? $task_ttd : 0
+                ]
+            ];
+        }
+    }
+
+    echo wp_send_json( $project_tasks );
+}
+add_action( 'wp_ajax_get_project_tasks', 'get_project_tasks_func' );
 
 
 

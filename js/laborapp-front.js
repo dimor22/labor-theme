@@ -9,6 +9,8 @@
 
             var fields = $(this).serializeArray();
 
+            console.log(fields);
+
             // create empty radio button field names for validation
             var radioFieldNames = [
                 'cert-osha10',
@@ -18,17 +20,17 @@
                 'cert-welderCert',
                 'skill-safetyTrained',
                 'skill-readdrawings',
-                'skill-shakeout',
+                'skill-fieldlayout',
                 'skill-forklift',
                 'skill-connector',
                 'skill-welder',
-                'skill-columns',
-                'skill-beams',
-                'skill-ledger',
+                'skill-shoplayout',
                 'skill-joist',
-                'skill-bridging',
-                'skill-placedeck',
-                'skill-attachdeck',
+                'skill-weldeck',
+                'skill-stairsrails',
+                'skill-familiaraisc',
+                'skill-computerprograms',
+                'skill-familiarclarkcounty',
                 'leadership'
             ];
 
@@ -49,7 +51,7 @@
             $(fields).each(function (index, element) {
                 if (element.value === '') {
 
-                    var emptyFieldPrefix = element.name.substring(0,4);
+                    var emptyFieldPrefix = element.name.substring(0,3);
 
                     var sectionObject = _.find( formSectionsToValidate, function (o) { return o.short === emptyFieldPrefix });
 

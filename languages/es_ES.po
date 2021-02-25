@@ -39,7 +39,7 @@ msgid "If you have certifications you must have a copy."
 msgstr "Si tiene certificaciones debe tener una copia."
 
 msgid "Skills"
-msgstr "Habilidades"
+msgstr "Experiencia"
 
 msgid "What is your Skill Level."
 msgstr "A que Nivel esta en cuanto a las siguientes habilidades."
@@ -101,14 +101,14 @@ msgstr "3 personas más"
 msgid "4 other people"
 msgstr "4 personas más"
 
-msgid "5 other people"
-msgstr "5 personas más"
+msgid "5 or more other people"
+msgstr "5 o más personas"
 
 msgid "More"
-msgstr "Mas"
+msgstr "Más"
 
 msgid "More Info"
-msgstr "Mas Información"
+msgstr "Más Información"
 
 msgid "Other helpful information about yourself"
 msgstr "Otra información relevante sobre usted"
@@ -172,3 +172,103 @@ msgstr "Mostrar"
 
 msgid "Hide"
 msgstr "Esconder"
+
+msgid "Nick Name"
+msgstr "Apodo"
+
+msgid "Field / Layout"
+msgstr "Diseño de Campo"
+
+msgid "Joist / Deck"
+msgstr "Viguetas / Piso"
+
+msgid "Weld Deck"
+msgstr "Soldar Piso"
+
+msgid "Stairs and Rails"
+msgstr "Escaleras y Barandillas"
+
+msgid "Shop Layout Fit Up"
+msgstr ""
+
+msgid "Computer Programs Excel / Word"
+msgstr "Programas de Computadora Excel / Word"
+
+msgid "Hard Hat"
+msgstr "Casco Duro"
+
+msgid "Vest"
+msgstr "Chaleco"
+
+msgid "Safety Glasses"
+msgstr "Lentes de Seguridad"
+
+msgid "Harness"
+msgstr "Arnes"
+
+msgid "Weldy Hood"
+msgstr "Casco de Soldador"
+
+msgid "Tools"
+msgstr "Herramientas"
+
+msgid "Tape Measure"
+msgstr "Cinta Métrica"
+
+msgid "Spud Wrench"
+msgstr "Llave Inglesa"
+
+msgid "Sleeve Tool"
+msgstr "Pela Cables"
+
+msgid "Work History"
+msgstr "Historial Laboral"
+
+msgid "Years in Steel Shop"
+msgstr "Años trabajando con Hierro"
+
+msgid "Years in Field Hanging Steel"
+msgstr "Años en acero colgante de campo"
+
+msgid "Prior Steel Companies"
+msgstr "Empresas de Hierro anteriores"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Company Name"
+msgstr "Nombre de Empresa"
+
+msgid "Years Worked"
+msgstr "Años Trabajados"
+
+msgid "Wage"
+msgstr "Sueldo"
+
+msgid "If Hired, When would you be available?"
+msgstr "Si es contratado, ¿cuándo estaría disponible?"
+
+msgid "PPE"
+msgstr ""
+
+msgid "Tools"
+msgstr "Herramientas"
+
+msgid "History"
+msgstr "Historial"
+
+msgid ""
+msgstr ""
+
+msgid "Prior Companies"
+msgstr "Empresas Anteriores"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+

@@ -23,19 +23,39 @@ function my_theme_enqueue_styles() {
         'sections' => [
             [
                 'display' => __('Personal', 'laborapp'),
-                'short' => 'pers'
+                'short' => 'per'
             ],
             [
                 'display' => __('Password', 'laborapp'),
-                'short' => 'pass'
+                'short' => 'pas'
             ],
             [
                 'display'   => __('Skills', 'laborapp'),
-                'short'     => 'skil'
+                'short'     => 'ski'
             ],
             [
                 'display'   => __('Leadership', 'laborapp'),
-                'short'     => 'lead'
+                'short'     => 'lea'
+            ],
+            [
+                'display'   => __('PPE', 'laborapp'),
+                'short'     => 'ppe'
+            ],
+            [
+                'display'   => __('Tools', 'laborapp'),
+                'short'     => 'too'
+            ],
+            [
+                'display'   => __('History', 'laborapp'),
+                'short'     => 'his'
+            ],
+            [
+                'display'   => __('Prior Companies', 'laborapp'),
+                'short'     => 'pri'
+            ],
+            [
+                'display'   => __('Available', 'laborapp'),
+                'short'     => 'ava'
             ]
         ],
         'validation_msgs' => [

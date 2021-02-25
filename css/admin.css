@@ -297,6 +297,38 @@ ul.worker-of-the-day {
 .error-field {
   border: 3px solid #e27575 !important; }
 
+.tasks-completed-foreman-form-row {
+  display: grid;
+  grid-template-columns: 40% 13% 15% 1fr;
+  grid-template-rows: 50px;
+  grid-column-gap: 10px;
+  align-items: center;
+  padding: 0 15px; }
+  @media screen and (min-width: 36em) {
+    .tasks-completed-foreman-form-row {
+      grid-template-columns: 50% 13% 15% 1fr; } }
+  .tasks-completed-foreman-form-row div {
+    font-size: 11px; }
+    @media screen and (min-width: 36em) {
+      .tasks-completed-foreman-form-row div {
+        font-size: 16px; } }
+  .tasks-completed-foreman-form-row.tasks-completed-foreman-form-row--header {
+    grid-template-columns: 40% 13% 15% 1fr; }
+    @media screen and (min-width: 36em) {
+      .tasks-completed-foreman-form-row.tasks-completed-foreman-form-row--header {
+        grid-template-columns: 50% 13% 15% 1fr; } }
+    .tasks-completed-foreman-form-row.tasks-completed-foreman-form-row--header div {
+      font-size: 11px; }
+      @media screen and (min-width: 36em) {
+        .tasks-completed-foreman-form-row.tasks-completed-foreman-form-row--header div {
+          font-size: 16px; } }
+  .tasks-completed-foreman-form-row:nth-child(odd) {
+    background: aliceblue; }
+  .tasks-completed-foreman-form-row__name {
+    text-align: left; }
+  .tasks-completed-foreman-form-row__today input {
+    width: 100%; }
+
 /* CHART JS SECTIONS */
 .card.chart-secction {
   display: flex;
@@ -426,6 +458,21 @@ select#ure_select_other_roles {
 /* wp user unwanted fields */
 table.uwp-profile-extra-table.form-table {
   display: none; }
+
+.project-row-lead-foreman-card {
+  display: grid;
+  grid-template-columns: -webkit-min-content auto;
+  grid-template-columns: min-content auto;
+  grid-column-gap: 20px;
+  align-items: center; }
+  .project-row-lead-foreman-card__image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden; }
+    .project-row-lead-foreman-card__image img {
+      width: 100%;
+      height: 100%; }
 
 @media screen and (max-width: 782px) {
   .auto-fold #adminmenu a.menu-top {
