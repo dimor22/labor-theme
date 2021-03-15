@@ -15,7 +15,7 @@ function extra_user_profile_fields( $user ) { ?>
                 <span class="description"><?php _e( "Please enter your phone number.", 'laborapp' ); ?></span>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-certifications">
             <th><label for="user-profile-certifications"><?php _e( "Certifications", 'laborapp' ); ?></label></th>
             <td>
                 <div class="grid-two-columns">
@@ -61,7 +61,7 @@ function extra_user_profile_fields( $user ) { ?>
                 </div>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-more-certifications">
             <th><label for="user-profile-more-certifications">
                     <?php _e( "More Certifications", 'laborapp' ); ?>
                 </label>
@@ -75,7 +75,7 @@ function extra_user_profile_fields( $user ) { ?>
                     ?></textarea>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-skill-list">
             <th><label for="user-skill-list"><?php _e( "Skill List", 'laborapp' ); ?></label></th>
             <td>
 
@@ -949,9 +949,270 @@ function extra_user_profile_fields( $user ) { ?>
                         </li>
                     </ul>
                 </div>
+
+                <!-- Familiar with AISC, AWS, Codes -->
+                <div class="skill-row">
+                    <p><?php _e('Familiar with AISC, AWS, Codes', 'laborapp');?></p>
+                    <ul>
+                        <li>
+                            <label for="familiaraisc1">1</label>
+                            <input id="familiaraisc1" type="radio" value="1"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 1 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc2">2</label>
+                            <input id="familiaraisc2" type="radio" value="2"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 2 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc3">3</label>
+                            <input id="familiaraisc3" type="radio" value="3"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 3 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc4">4</label>
+                            <input id="familiaraisc4" type="radio" value="4"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 4 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc5">5</label>
+                            <input id="familiaraisc5" type="radio" value="5"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 5 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc6">6</label>
+                            <input id="familiaraisc6" type="radio" value="6"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 6 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc7">7</label>
+                            <input id="familiaraisc7" type="radio" value="7"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 7 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc8">8</label>
+                            <input id="familiaraisc8" type="radio" value="8"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 8 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc9">9</label>
+                            <input id="familiaraisc9" type="radio" value="9"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 9 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                        <li>
+                            <label for="familiaraisc10">10</label>
+                            <input id="familiaraisc10" type="radio" value="10"
+                                <?php if ( get_the_author_meta( 'skill-familiaraisc', $user->ID ) == 10 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiaraisc">
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Computer Programs Excel / Word -->
+                <div class="skill-row">
+                    <p><?php _e('Computer Programs Excel / Word', 'laborapp');?></p>
+                    <ul>
+                        <li>
+                            <label for="computerprograms1">1</label>
+                            <input id="computerprograms1" type="radio" value="1"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 1 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms2">2</label>
+                            <input id="computerprograms2" type="radio" value="2"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 2 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms3">3</label>
+                            <input id="computerprograms3" type="radio" value="3"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 3 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms4">4</label>
+                            <input id="computerprograms4" type="radio" value="4"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 4 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms5">5</label>
+                            <input id="computerprograms5" type="radio" value="5"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 5 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms6">6</label>
+                            <input id="computerprograms6" type="radio" value="6"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 6 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms7">7</label>
+                            <input id="computerprograms7" type="radio" value="7"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 7 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms8">8</label>
+                            <input id="computerprograms8" type="radio" value="8"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 8 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms9">9</label>
+                            <input id="computerprograms9" type="radio" value="9"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 9 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                        <li>
+                            <label for="computerprograms10">10</label>
+                            <input id="computerprograms10" type="radio" value="10"
+                                <?php if ( get_the_author_meta( 'skill-computerprograms', $user->ID ) == 10 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-computerprograms">
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Familiar with AISC / Clark County Approved Fabricator QC Requirements -->
+                <div class="skill-row">
+                    <p><?php _e('Familiar with AISC / Clark County Approved Fabricator QC Requirements', 'laborapp');?></p>
+                    <ul>
+                        <li>
+                            <label for="familiarclarkcounty1">1</label>
+                            <input id="familiarclarkcounty1" type="radio" value="1"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 1 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty2">2</label>
+                            <input id="familiarclarkcounty2" type="radio" value="2"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 2 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty3">3</label>
+                            <input id="familiarclarkcounty3" type="radio" value="3"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 3 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty4">4</label>
+                            <input id="familiarclarkcounty4" type="radio" value="4"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 4 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty5">5</label>
+                            <input id="familiarclarkcounty5" type="radio" value="5"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 5 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty6">6</label>
+                            <input id="familiarclarkcounty6" type="radio" value="6"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 6 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty7">7</label>
+                            <input id="familiarclarkcounty7" type="radio" value="7"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 7 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty8">8</label>
+                            <input id="familiarclarkcounty8" type="radio" value="8"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 8 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty9">9</label>
+                            <input id="familiarclarkcounty9" type="radio" value="9"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 9 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                        <li>
+                            <label for="familiarclarkcounty10">10</label>
+                            <input id="familiarclarkcounty10" type="radio" value="10"
+                                <?php if ( get_the_author_meta( 'skill-familiarclarkcounty', $user->ID ) == 10 ) : ?>
+                                    checked="checked"
+                                <?php endif;?>
+                                   name="skill-familiarclarkcounty">
+                        </li>
+                    </ul>
+                </div>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-ppe">
             <th>
                 <h3><?php _e('PPE', 'laborapp');?></h3>
             </th>
@@ -1001,7 +1262,7 @@ function extra_user_profile_fields( $user ) { ?>
                 </div>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-tools">
             <th>
                 <h3><?php _e('Tools', 'laborapp');?></h3>
             </th>
@@ -1034,7 +1295,7 @@ function extra_user_profile_fields( $user ) { ?>
                 </div>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-work-history">
             <th>
                 <h3><?php _e('Work History', 'laborapp'); ?></h3>
             </th>
@@ -1061,7 +1322,7 @@ function extra_user_profile_fields( $user ) { ?>
                 </div>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-employer-experience">
             <th>
                 <h3><?php _e('Employer Experience', 'laborapp'); ?></h3>
             </th>
@@ -1094,7 +1355,7 @@ function extra_user_profile_fields( $user ) { ?>
                 <p>Company 3: <?php echo $comp3_message;?></p>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-leadership">
             <th>
                 <h3><?php _e('Leadership', 'laborapp');?></h3>
             </th>
@@ -1139,7 +1400,7 @@ function extra_user_profile_fields( $user ) { ?>
                 </div>
             </td>
         </tr>
-        <tr>
+        <tr id="user-profile-more">
             <th>
                 <h3><?php _e('More', 'laborapp');?></h3>
             </th>
@@ -1166,13 +1427,19 @@ function extra_user_profile_fields( $user ) { ?>
 
                 $user = "user_{$user}";
                 $options = [];
-                // read ACF data for current user
-                if ( have_rows('skills', $user) ) {
-                    while ( have_rows('skills', $user) ){
-                        the_row();
-                        $options[get_sub_field('skills')] = get_sub_field('level');
-                    }
-                }
+                $options['Safety Trained'] = get_the_author_meta( 'skill-safetyTrained', $user_id );
+                $options['Read Drawings'] = get_the_author_meta( 'skill-readdrawings', $user_id );
+                $options['Field Layout'] = get_the_author_meta( 'skill-fieldlayout', $user_id );
+                $options['Forklift'] = get_the_author_meta( 'skill-forklift', $user_id );
+                $options['Connector'] = get_the_author_meta( 'skill-connector', $user_id );
+                $options['Welder'] = get_the_author_meta( 'skill-welder', $user_id );
+                $options['Shop Layout'] = get_the_author_meta( 'skill-shoplayout', $user_id );
+                $options['Joist / Deck'] = get_the_author_meta( 'skill-joist', $user_id );
+                $options['Weld Deck'] = get_the_author_meta( 'skill-weldeck', $user_id );
+                $options['Stairs'] = get_the_author_meta( 'skill-stairsrails', $user_id );
+                $options['Codes'] = get_the_author_meta( 'skill-familiaraisc', $user_id );
+                $options['Computer'] = get_the_author_meta( 'skill-computerprograms', $user_id );
+                $options['Clark County'] = get_the_author_meta( 'skill-familiarclarkcounty', $user_id );
 
                 ?>
 

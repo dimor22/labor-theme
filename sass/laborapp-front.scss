@@ -54,6 +54,17 @@ button, input, select, optgroup, textarea {
   display: none;
 }
 
+/** HOMEPAGE HERO **/
+
+figure.wp-block-image.size-large.is-resized.homepage-hero-image {
+  margin-bottom: 20px !important;
+}
+.wp-block-column.is-vertically-aligned-center.homepage-hero-text p {
+  @include md {
+    font-size: 26px !important;
+  }
+}
+
 /** LEARN PRESS **/
 #lp-archive-courses ul.learn-press-courses {
   display: grid;

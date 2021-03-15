@@ -474,6 +474,18 @@ table.uwp-profile-extra-table.form-table {
       width: 100%;
       height: 100%; }
 
+tr.user-rich-editing-wrap,
+tr.user-admin-color-wrap,
+tr.user-comment-shortcuts-wrap,
+tr.show-admin-bar.user-admin-bar-front-wrap,
+tr.user-url-wrap,
+tr.user-description-wrap,
+div#application-passwords-section {
+  display: none; }
+
+.card.profile-skills-card {
+  max-height: 400px; }
+
 @media screen and (max-width: 782px) {
   .auto-fold #adminmenu a.menu-top {
     height: 45px; } }

@@ -319,4 +319,38 @@ add_action( 'pre_get_posts', 'filter_query_by_foreman');
 //    }
 //}
 
+add_action('show_user_profile', 'hide_profile_fields_for_not_admin', 10, 1);
+add_action('edit_user_profile', 'hide_profile_fields_for_not_admin', 10, 1);
+function hide_profile_fields_for_not_admin($form_type) {
+    //
+    if ( ! current_user_can( 'delete_others_posts' ) ) :
+    ?>
+    <script type="text/javascript">
+        // Removing fields for non admins
+        jQuery(document).ready(function (){
+            jQuery('#user-profile-certifications').remove();
+            jQuery('#user-profile-more-certifications').remove();
+            jQuery('#user-profile-skill-list').remove();
+            jQuery('#user-profile-ppe').remove();
+            jQuery('#user-profile-tools').remove();
+            jQuery('#user-profile-work-history').remove();
+            jQuery('#user-profile-employer-experience').remove();
+            jQuery('#user-profile-leadership').remove();
+            jQuery('#user-profile-more').remove();
+        })
+    </script>
+    <?php endif;
+}
+
+if ( !function_exists('labor_app_is_user_this_role') ) {
+    function labor_app_is_user_this_role($user, $role){
+        $roles = $user->roles;
+        if ( in_array($role, $roles) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 

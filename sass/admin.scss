@@ -1,9 +1,6 @@
 @import "globals";
-
 @import "mixins";
-
 @import "skill-row";
-
 @import "buttons";
 
 /* =========================================
@@ -62,7 +59,6 @@
   padding: 10px;
   width: 100%;
 }
-
 .swiper-container {
   width: 100%;
   max-width: 550px;
@@ -102,9 +98,6 @@ ul.worker-of-the-day{
   margin: 8px 0;
   height: 7vh;
 }
-
-
-
 #foreman-form-page {
   padding-right: 10px;
   font-size: 16px;
@@ -117,13 +110,9 @@ ul.worker-of-the-day{
     text-align: center;
   }
 }
-
-
-
 #foreman-form-page .swiper-slide.ffp-slide{
   overflow: scroll;
 }
-
 #foreman-form-page .swiper-slide.ffp-slide h3 {
   text-align: center;
   font-size: 1.4rem;
@@ -141,7 +130,6 @@ ul.worker-of-the-day{
   text-align: center;
   min-width: 220px;
 }
-
 #foreman-form-page .row label {
   width: 100%;
   text-align: center;
@@ -182,17 +170,14 @@ ul.worker-of-the-day{
   justify-content: space-between;
   padding: 5% 2% 5%;
 }
-
 .ffp-slide .time-row label {
   font-size: inherit;
 }
-
 .ffp-slide .time-row input {
   font-size: inherit;
   margin-left: 4px;
   margin-bottom: 8px;
 }
-
 .ffp-slide .time-row div {
   display: flex;
   align-items: center;
@@ -213,25 +198,20 @@ ul.worker-of-the-day{
   justify-content: center;
   margin: 7% 0;
 }
-
 #foreman-form-page .row.row-checkbox input {
   width: auto;
   min-width: 25px;
   margin-right: 8px;
 }
-
 #foreman-form-page .row.row-checkbox label {
   margin: 0;
   width: auto;
 }
-
 #foreman-form-page .row.row-fileupload input {
   border: 1px solid #ffd242;
   border-radius: 5px;
   width: 100%;
 }
-
-
 #foreman-form-page input[type="file" i]::-webkit-file-upload-button {
   background-color: #fbcc42;
   border-radius: 5px;
@@ -241,11 +221,9 @@ ul.worker-of-the-day{
   border: none;
   padding: 5px;
 }
-
 .error-field{
   border: 3px solid #e27575 !important;
 }
-
 .tasks-completed-foreman-form-row {
   display: grid;
   grid-template-columns: 40% 13% 15% 1fr;
@@ -473,6 +451,23 @@ table.uwp-profile-extra-table.form-table {
       height: 100%;
     }
   }
+}
+
+// ** HIDE UNWANTED PROFILE FIELDS ** //
+tr.user-rich-editing-wrap,
+tr.user-admin-color-wrap,
+tr.user-comment-shortcuts-wrap,
+tr.show-admin-bar.user-admin-bar-front-wrap,
+tr.user-url-wrap,
+tr.user-description-wrap,
+div#application-passwords-section
+{
+  display: none;
+}
+
+// ** PROFILE SKILL GRAPH ** //
+.card.profile-skills-card {
+  max-height: 400px;
 }
 
 @media screen and (max-width: 782px){

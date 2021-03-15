@@ -139,6 +139,14 @@ button, input, select, optgroup, textarea {
 .uwp_page .entry .entry-header {
   display: none; }
 
+/** HOMEPAGE HERO **/
+figure.wp-block-image.size-large.is-resized.homepage-hero-image {
+  margin-bottom: 20px !important; }
+
+@media screen and (min-width: 64em) {
+  .wp-block-column.is-vertically-aligned-center.homepage-hero-text p {
+    font-size: 26px !important; } }
+
 /** LEARN PRESS **/
 #lp-archive-courses ul.learn-press-courses {
   display: grid;

@@ -836,7 +836,7 @@
           labels: newLabels,
           datasets: [
             {
-              label: 'Skill',
+              label: 'Worker Skills',
               data: newValues,
               borderColor: 'orange',
               backgroundColor: 'rgb(242, 171, 47,0.5)',
@@ -848,14 +848,14 @@
           scale: {
             ticks: {
               min: 0,
-              max: 6,
+              max: 10,
               stepSize: 1
             }
           }
         }
       });
-      userSkillChart.canvas.parentNode.style.height = '360px';
-      userSkillChart.canvas.parentNode.style.width = '360px';
+      userSkillChart.canvas.parentNode.style.height = 'auto';
+      userSkillChart.canvas.parentNode.style.width = '100%';
     }
 
     /**

@@ -898,11 +898,11 @@ get_header();
                                        value="Spud Wrench"
                                        name="tools-spud-wrench">
 
-                                <label for="sleeve-tool"><?php _e('Sleeve Tool', 'laborapp'); ?></label>
+                                <label for="sleever-bar"><?php _e('Sleever Bar', 'laborapp'); ?></label>
                                 <input type="checkbox"
-                                       id="sleeve-tool"
-                                       value="Sleeve Tool"
-                                       name="tools-sleeve-tool">
+                                       id="sleever-bar"
+                                       value="Sleeve Bar"
+                                       name="tools-sleever-bar">
                             </div>
 
                             <!-- HISTORY -->
@@ -932,7 +932,7 @@ get_header();
                                        id="company1time"
                                        name="company1-time">
                                 <input type="text"
-                                       placeholder="<?php _e('Wage', 'laborapp'); ?>"
+                                       placeholder="<?php _e('Hourly Wage', 'laborapp'); ?>"
                                        id="company1wage"
                                        name="company1-wage">
                             </div>
@@ -950,7 +950,7 @@ get_header();
                                        id="company2time"
                                        name="company2-time">
                                 <input type="text"
-                                       placeholder="<?php _e('Wage', 'laborapp'); ?>"
+                                       placeholder="<?php _e('Hourly Wage', 'laborapp'); ?>"
                                        id="company2wage"
                                        name="company2-wage">
                             </div>
@@ -968,7 +968,7 @@ get_header();
                                        id="company3time"
                                        name="company3-time">
                                 <input type="text"
-                                       placeholder="<?php _e('Wage', 'laborapp'); ?>"
+                                       placeholder="<?php _e('Hourly Wage', 'laborapp'); ?>"
                                        id="company3wage"
                                        name="company3-wage">
                             </div>

@@ -251,14 +251,11 @@ msgstr "Si es contratado, ¿cuándo estaría disponible?"
 msgid "PPE"
 msgstr ""
 
-msgid "Tools"
-msgstr "Herramientas"
-
 msgid "History"
 msgstr "Historial"
 
-msgid ""
-msgstr ""
+msgid "Hourly Wage"
+msgstr "Sueldo por Hora"
 
 msgid "Prior Companies"
 msgstr "Empresas Anteriores"
@@ -266,9 +263,6 @@ msgstr "Empresas Anteriores"
 msgid "Available"
 msgstr "Disponible"
 
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
+msgid "Sleever Bar"
+msgstr "Barreta"
 
