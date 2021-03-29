@@ -14,11 +14,15 @@ $t = empty($p['team']) ? [] : get_fields($p['team']->ID);
 <table class="app-table">
     <tr>
         <td>Total Points</td>
-        <td><?php echo number_format($p['project_points']);?></td>
+        <td><?php
+            $project_points_float = (float) $p['project_points'];
+            echo number_format($project_points_float, 2);?></td>
     </tr>
     <tr>
         <td>Progress</td>
-        <td><?php echo $p['project_completed'];?>%</td>
+        <td><?php
+            $project_progress_float = (float) $p['project_completed'];
+            echo number_format($project_progress_float, 2);?>%</td>
     </tr>
     <tr>
         <td>Lead Foreman</td>
