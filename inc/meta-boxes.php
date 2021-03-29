@@ -15,8 +15,9 @@ function my_custom_dashboard_widgets() {
 function labor_projects_completion() {
 
     $projects = new WP_Query( array(
-        'post_type'   => 'Projects',
-        'numberposts' => - 1
+        'post_type'     => 'Projects',
+        'numberposts'   => - 1,
+        'post_status'   => 'publish'
     ) );
 
     $chart = [];
@@ -44,41 +45,31 @@ function labor_team_performance() {
 
     // get team ids
     $team_posts = get_posts([
-            'post_type' => 'teams',
-            'status'    => 'published',
-            'numberposts' => -1
+            'post_type'     => 'teams',
+            'post_status'   => 'publish',
+            'numberposts'   => -1
     ]);
-
     $chart['labels'] = []; // team names
     $chart['values'] = []; // team average points
 
     foreach ($team_posts as $team_post) {
-
         global $wpdb;
-
         $table_name = $wpdb->prefix . 'team_reports';
-
         $query = "SELECT date, team_name, points FROM $table_name WHERE team_id = '{$team_post->ID}'";
-
         $teams = $wpdb->get_results($query, 'OBJECT');
 
         // get team post_meta
-
-
         $chart['labels'][] = $team_post->post_title;
-        //$team_meta = get_post_meta( $team->ID, LABOR_Json_Tables::$team_report_key );
         $points = 0;
         foreach ($teams as $team_data) {
             $points += $team_data->points;
         }
-
         if ( $points > count($teams) ) {
-            $chart['values'][] = $points / count($teams);
+            $averagePoints = (float) $points / count($teams);
+            $chart['values'][] = number_format($averagePoints, 2);
         } else {
             $chart['values'][] = 0;
         }
-
-
     }
 
     ?>
