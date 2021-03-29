@@ -61,22 +61,20 @@
 					<div class="card">
 						<h3 class="">Job total points <strong id="js-project-points" data-points="0"></strong></h3>
 						<div class="progress-bar">
-							<div id="js-project-percent" data-project-percent="">0%</div>
+							<div id="js-project-percent" data-project-percent-start="" data-project-percent="">0%</div>
 						</div>
 						<div class="row">
-							<label for="percentage-completed">% completed today</label>
-							<input type="tel"
+							<label for="percentage-completed"><strong
+                                        id="js-display-percent-completed-today">0</strong>% completed today</label>
+							<input type="hidden"
 							       id="percentage-completed"
 							       name="percentage-completed"
-							       class=""
-							       max="100"
-							       min="0"
-							       placeholder="less or equal to 75 %">
+                                    value="0">
 						</div>
-						<div class="row">
-							<label>Total points today</label>
-							<div id="total-points-today" class="">0</div>
-						</div>
+<!--						<div class="row">-->
+<!--							<label>Total points today</label>-->
+<!--							<div id="total-points-today" class="">0</div>-->
+<!--						</div>-->
 					</div>
 
                     <div class="card">
@@ -88,6 +86,7 @@
                                 <div class="tasks-completed-foreman-form-row__today">TODAY</div>
                             </div>
                             <div id="js-tasks-completed-today-section"></div>
+                            <label>Total points today: <strong id="js-tasks-completed-today-points">0</strong></label>
                     </div>
 				</div><!-- end of slide 1 -->
 				

@@ -8,32 +8,83 @@
 
     // Daily point calculation
 
-    numeral.defaultFormat('0,0');
+    numeral.defaultFormat('0,0.00');
 
     const getPoints = function(percent) {
       const points = numeral( $('#js-project-points').attr('data-points') * (percent/100));
       return points;
     }
 
-    $('#percentage-completed').on('keyup blur', function() {
-      $(this).removeClass('error-field');
-      //reset errors array
-      errors = [];
-      const input = $(this).val();
+    /**
+     *
+     * @returns {Numeral}
+     */
+    const getTasksPoints = function () {
+      var points = 0;
+      $("[id^=task_ttd_]").each( function (index, element){
+          var hoursEach = $(element).data('task-hours');
+          var count = $(element).val();
+          var maxUnits = $(element).data('max-units');
 
-      if ( input <= ( 100 - $("#js-project-percent").attr('data-project-percent') ) ) {
-        $('#total-points-today').text(getPoints(input).format());
+          if ( count > maxUnits ) {
+            $(element).val('');
+            count = 0;
+          }
 
-        // set global variables
-        teamPoints = getPoints(input).format();
-        teamPointsNoFormat = getPoints(input).value();
-        $('#js-form-team-points').val(teamPointsNoFormat);
-      } else {
-        $(this).val("");
-        $('#total-points-today').text(0);
+          points += count * hoursEach * 12;
+      });
+
+      $('#js-tasks-completed-today-points').text(numeral(points).format());
+
+      return numeral(points);
+    }
+
+    /**
+     *
+     * @param taskPoints
+     * @returns {Numeral}
+     */
+    function calculatePointsToPercent(taskPoints){
+      var projectTotalPoints = parseFloat($('#project-input').children("option:selected").data('project-points'));
+      var percent = (taskPoints.value() * 100) / projectTotalPoints;
+
+      return numeral(percent);
+    }
+
+    /**
+     *
+     * @param percent
+     */
+    function updateProgressBar(percent) {
+      var $progressBar = $('#js-project-percent');
+      var startPercent = $progressBar.attr('data-project-percent-start');
+      var totalPercent = (parseFloat(startPercent) + percent);
+
+      if ( percent == 0 ) {
+        totalPercent = startPercent;
       }
 
-    });
+      $progressBar.css('width', numeral(totalPercent).format() + '%');
+      $progressBar.text(numeral(totalPercent).format() + '%');
+      $progressBar.attr('data-project-percent', numeral(totalPercent).format());
+    }
+
+    /**
+     *
+     * @param tasksPoints
+     */
+    function updateDisplayTodayPercent(tasksPoints){
+      var percent = calculatePointsToPercent(tasksPoints);
+
+      $('#js-display-percent-completed-today').text(percent.format());
+      $('#percentage-completed').val(percent.format());
+      updateProgressBar(percent.value());
+
+      // set global variables
+      teamPoints = tasksPoints.format();
+      teamPointsNoFormat = tasksPoints.value();
+      $('#js-form-team-points').val(teamPointsNoFormat);
+    }
 
     $('#foreman-daily-form').on('keyup blur', '.daily-points input', function() {
 
@@ -43,12 +94,12 @@
       $('.daily-points input').each( function(index, value){
 
         let points = $(value).val() == '' ? 0 : $(value).val();
-        totalPointsAssigned += parseFloat( points );
+        totalPointsAssigned += parseFloat(points);
       });
 
       // Update DOM data atts
-      $('[data-team-points-assigned]').attr('data-team-points-assigned', totalPointsAssigned);
-      $('[data-team-points-assigned]').text(totalPointsAssigned);
+      $('[data-team-points-assigned]').attr('data-team-points-assigned', numeral(totalPointsAssigned).value());
+      $('[data-team-points-assigned]').text(numeral(totalPointsAssigned).format());
 
       // Get total team points earned
       teamPoints = $('[data-team-points-earned]').attr('data-team-points-earned');
@@ -57,7 +108,7 @@
       let activeSlidePointsAssigned = $('.swiper-slide.swiper-slide-active').find('.daily-points input').val();
 
       // Validate
-      if ( totalPointsAssigned > teamPoints ) {
+      if (totalPointsAssigned > teamPoints ) {
         $('[data-team-points-remaining]').addClass('error');
         errors.push({text: 'Too many points assigned.'});
       } else if ( activeSlidePointsAssigned == 0 || activeSlidePointsAssigned === '') {
@@ -71,7 +122,7 @@
       remainingPoints = teamPoints - totalPointsAssigned;
 
       $('[data-team-points-remaining]').attr('data-team-points-remaining', remainingPoints);
-      $('[data-team-points-remaining]').text(remainingPoints);
+      $('[data-team-points-remaining]').text(numeral(remainingPoints).format());
 
 
     });
@@ -101,7 +152,7 @@
           <div class="row daily-points">
           <label for="daily-points${position}">Points earned</label>
           <input type="tel" name="user_field_${position}[daily-points]" id="daily-points${position}" data-user-points-earned="" value="0"/>
-          <table class="points-table mt-1"><tr><td>Team points earned today</td><td><strong data-team-points-earned="${teamPoints}">${teamPoints}</strong></td></tr>
+          <table class="points-table mt-1"><tr><td>Team points earned today</td><td><strong data-team-points-earned="${teamPointsNoFormat}">${teamPoints}</strong></td></tr>
           <tr><td>Team points asigned</td><td><strong data-team-points-assigned="0">0</strong></td></tr>
           <tr><td>Points remaining to be assigned</td><td><strong data-team-points-remaining="${teamPoints}">${teamPoints}</strong></td></tr></table>
           </div>
@@ -314,8 +365,6 @@
       },
       on: {
         init: function() {
-          console.log('current index is: ' + this.activeIndex);
-          console.log('total slides: ' + _.size(this.slides));
 
           function getProjectInfo() {
             let projectPoints = $('#project-input').children("option:selected").data('project-points');
@@ -329,15 +378,16 @@
             $('#js-project-percent').width(projectPercent + '%');
             $('#js-project-percent').text(projectPercent + '%');
             $('#js-project-percent').attr('data-project-percent', projectPercent);
+            $('#js-project-percent').attr('data-project-percent-start', projectPercent);
 
             let dailyMax = 100 - projectPercent;
 
-            $('#percentage-completed').attr("placeholder", "less or equal to "+ dailyMax +"%");
+            //$('#percentage-completed').attr("placeholder", "less or equal to "+ dailyMax +"%");
           }
 
           function getProjectTasks() {
             let projectSelectedId = $('#project-input').children("option:selected").val();
-            console.log('id before ajax: ' + projectSelectedId);
+
             let tasksSection = $('#js-tasks-completed-today-section');
 
             $.ajax({
@@ -354,18 +404,38 @@
                 if ( tasks.length > 0 ) {
                   tasks.forEach( function (task){
 
+                    var maxUnits = task.taskList.total - task.taskList.ttd;
+
                     taskTemplate += `<div class="tasks-completed-foreman-form-row">
                                             <div class="tasks-completed-foreman-form-row__name">${task.taskList.name}</div>
-                                            <div class="tasks-completed-foreman-form-row__total">${task.taskList.total}</div>
-                                            <div class="tasks-completed-foreman-form-row__ttd">${task.taskList.ttd}</div>
+                                            <div class="tasks-completed-foreman-form-row__total" data-task-total="${task.taskList.total}">${task.taskList.total}</div>
+                                            <div class="tasks-completed-foreman-form-row__ttd" data-task-ttd="${task.taskList.ttd}">${task.taskList.ttd}</div>
                                             <div class="tasks-completed-foreman-form-row__today">
                                                 <input type="tel"
+                                                       data-task-hours="${task.taskList.hours}"
+                                                       data-max-units="${maxUnits}"
                                                        id="task_ttd_${task.taskList.name.replace(/\s/g, '-').toLowerCase()}"
                                                        name="task_ttd_${task.taskList.name.replace(/\s/g, '-').toLowerCase()}">
                                             </div>
                                         </div>`;
                   });
                   tasksSection.html(taskTemplate);
+
+                  // Set listener
+                  $("[id^=task_ttd_]").on('keyup blur', function (){
+
+                    var points = getTasksPoints();
+
+                    // update hidden form input
+                    $('#js-form-team-points').val(points.format());
+
+                    // update today total points display
+                    $('#js-tasks-completed-today-points').text(points.format());
+
+                    // update today percentage display and hidden form input
+                    updateDisplayTodayPercent(points);
+                  });
+
                 } else {
                   tasksSection.html('<p>No tasks have been assigned to this project yet.</p>');
                 }
@@ -386,8 +456,6 @@
         },
         slideChange: function() {
           console.log('total slides: ' + _.size(this.slides));
-
-
         },
         slideNextTransitionStart: function() {
 
@@ -413,7 +481,6 @@
 
             // reset selected workers array
             selectedWorkers = [];
-            console.log(swiper.slides);
 
             // reset total points assigned
             resetPointsSystem();
@@ -461,9 +528,42 @@
       }
 
       // STEP 1. Check percentage is filled
-      if ( validate && swiper.activeIndex === 0 && $('#percentage-completed').val() === '' ) {
-        $('#percentage-completed').addClass('error-field');
-        stopShowError( 'Project percentage is empty' );
+      // if ( validate && swiper.activeIndex === 0 && $('#percentage-completed').val() === '' ) {
+      //   $('#percentage-completed').addClass('error-field');
+      //   stopShowError('Project percentage is empty');
+      // }
+
+      // STEP 1.5. Check tasks are filled if they exist
+      if ( validate && $("[id^=task_ttd_]").length ) {
+
+        $("[id^=task_ttd_]").each( function (index, element){
+
+          var ttd = $(element).parent().parent().find('.tasks-completed-foreman-form-row__ttd').data('task-ttd');
+          var total = $(element).parent().parent().find('.tasks-completed-foreman-form-row__total').data('task-total');
+          var max = total - ttd;
+          var element_value = $(element).val();
+
+          $(element).on('keyup blur', function (){
+            $(element).removeClass('error-field');
+          });
+
+          // Check value not empty
+          if ( element_value == '') {
+            $(element).addClass('error-field');
+            stopShowError('Some Tasks are empty');
+
+            // Check value is integer
+          } else if ( isNaN(parseInt(element_value)) ) {
+            $(element).addClass('error-field');
+            stopShowError('Only numbers accepted.');
+
+            // Check value limit
+          } else if ( parseInt(element_value) > max ) {
+            $(element).addClass('error-field');
+            stopShowError('Value out of range.');
+          }
+
+        })
       }
 
       // STEP 2. Get Team members
@@ -476,10 +576,6 @@
             payload : projectTeamId
           },
           success : function( workers ) {
-
-            console.log('Returning Team members!!!!');
-
-            console.log(workers);
 
             var workersHtml = '';
 
@@ -534,8 +630,6 @@
      */
     $('.controls .prev').click(function() {
       swiper.slidePrev();
-      console.log('current index is: ' + swiper.activeIndex);
-
 
       if ( ! swiper.isEnd ){
         $('.next').show();
@@ -567,7 +661,6 @@
         //selectedWorkers.push({id: userId, name: userName, image: userImg});
         addSelectedUser( user );
       }
-      //console.log(selectedWorkers);
 
     });
 
@@ -617,57 +710,12 @@
         // Update button text
         $(this).text('Select All');
       }
-
-      console.log(selectedWorkers);
     });
 
 
     /**
      * SUBMIT FORM
      */
-
-    // $('.submit-btn').click(function(e) {
-    //   e.preventDefault();
-    //
-    //   console.log('form prevented');
-    //
-    //   // RETURN EARLY IF SUBMITTED BEFORE THE LAST SLIDE
-    //   if ( !swiper.isEnd ) { return; }
-    //
-    //   let form = $(this).closest('form').serializeArray();
-    //
-    //   console.log(form);
-    //
-    //   $.ajax({
-    //     url : labor_form_ajax.ajax_url,
-    //     type : 'post',
-    //     data : {
-    //       action : 'foreman_daily_form',
-    //       payload : form
-    //     },
-    //     success : function( response ) {
-    //
-    //
-    //       console.log('Foreman Daily Form Submited from Ajax!!!!');
-    //
-    //       console.log(response);
-    //
-    //       form_submitted_modal_success();
-    //
-    //     },
-    //     fail: function () {
-    //       //$('.search-container ul').html('Ocurrio un problema en la busqueda. Intentelo mas tarde.');
-    //       form_submitted_modal_fail();
-    //
-    //     },
-    //     statusCode: {
-    //       500: function() {
-    //         //alert( "page not found" );
-    //         form_submitted_modal_fail();
-    //       }
-    //     }
-    //   });
-    // });
 
     // validate form fields
     $('#foreman-daily-form').on('submit', function (e) {
@@ -677,7 +725,6 @@
       if ( !swiper.isEnd ) { return; }
 
       let fields = $(this).serializeArray();
-      console.log(fields);
 
       // find out how many users are being submitted
       // required label name "user_field_x[user-id]"
@@ -688,7 +735,6 @@
           userPrefixes.push( _.truncate(field.name, { 'length' : 14,'separator' : '[', 'omission' : ''}) );
         }
       });
-      console.log({'user prefixes' : userPrefixes});
 
       // create empty radio button field names for validation
       let ratings = ['quality', 'leadership', 'trust', 'safety'];
@@ -701,7 +747,6 @@
         });
         radioFieldNames = _.concat(radioFieldNames, editedNames);
       });
-      console.log({'radio field names' : radioFieldNames});
 
       // Adds empty radio buttons to fields array
       _.forEach(radioFieldNames, function (rating) {
@@ -709,7 +754,7 @@
       });
 
       // display all inputs
-      console.log({'all fields':fields});
+      // console.log({'all fields':fields});
 
       // validate inputs
       let errors = [];
@@ -726,7 +771,7 @@
       // }
 
       // submit form
-      console.log('form validated and submitting');
+
       $.ajax({
         url : labor_form_ajax.ajax_url,
         type : 'post',
@@ -736,9 +781,7 @@
         },
         success : function( response ) {
 
-          console.log('Foreman Daily Form Submited from Ajax!!!!');
-
-          console.log(response);
+          //console.log(response);
 
           form_submitted_modal_success();
 
@@ -870,7 +913,6 @@
       ) {
         userPerformanceValue = 0;
       }
-      console.log('valvue ' + userPerformanceValue);
       let userPerformanceGauge = new RadialGauge({
         renderTo: 'user-performance-gauge',
         width: 300,
@@ -920,7 +962,7 @@
       var userBehaviourChartData = $('.profile-behavior-card').data('behavior-data');
     }
 
-    let userBehaviorSafetyChartEle = $('#user-behavior-chart-safety');
+    var userBehaviorSafetyChartEle = $('#user-behavior-chart-safety');
     if ( userBehaviorSafetyChartEle.length > 0 ) {
 
       let userBehaviorSafetyChart = new Chart(userBehaviorSafetyChartEle, {

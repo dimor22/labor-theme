@@ -13,96 +13,7 @@
  * @return array
  */
 
-class LABOR_Json_Tables {
-    public $daily_report_post_type     = 'daily_reports';
-    public static $daily_report_key    = 'daily_report_form';
-    public $daily_report_path          = '';
 
-    public $team_report_post_type      = 'teams';
-    public static $team_report_key     = 'team_daily_form';
-    public $team_report_path           = '';
-
-    public $project_report_post_type   = 'projects';
-    public static $project_report_key  = 'project_daily_form';
-    public $project_report_path        = '';
-
-    public $user_report_post_type      = 'user';
-    public static $user_report_key     = 'worker_daily_form';
-    public $user_report_path           = '';
-
-    public function __construct()
-    {
-        $document_root = $_SERVER['DOCUMENT_ROOT'];
-        $this->daily_report_path    = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/daily-report.json';
-        $this->team_report_path     = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/team-report.json';
-        $this->project_report_path  = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/project-report.json';
-        $this->user_report_path     = $document_root . '/wp-content/themes/labor-theme/template-parts/json-tables/user-report.json';
-    }
-
-    public function generate_json_table($post_type, $key, $path) {
-        global $wpdb;
-        $reports = [];
-
-        if ($post_type === 'user') {
-            $query = "SELECT *  FROM `wp_usermeta` WHERE `meta_key` = %s ORDER BY `umeta_id`  DESC";
-            $user_meta = $wpdb->get_results($wpdb->prepare($query, 'worker_daily_form'));
-            foreach ($user_meta as $row) {
-                $reports[] = maybe_unserialize($row->meta_value);
-            }
-        } else {
-//        $posts = get_posts( ['numberposts' => -1, 'post_type' => $post_type, 'meta_key' => $key] );
-//
-//        foreach ( $posts as $post_row ) {
-//            $reports[] = get_post_meta( $post_row->ID, $key, true );
-//        }
-            $query = "SELECT *  FROM `wp_postmeta` WHERE `meta_key` = %s ORDER BY `meta_id`  DESC";
-            $post_meta = $wpdb->get_results($wpdb->prepare($query, $key));
-            foreach ($post_meta as $row) {
-                $reports[] = maybe_unserialize($row->meta_value);
-            }
-        }
-
-        if ( $fp = fopen( $path, 'w' ) ) {
-            if ( fwrite( $fp, json_encode( $reports ) ) ) {
-                if ( false === fclose( $fp ) ){
-                    error_log("Failed to close json file for $post_type.", 0);
-                }
-            } else {
-                error_log("Failed to write json file for $post_type.", 0);
-            }
-
-        } else {
-            error_log("Failed to open json file for $post_type", 0);
-        }
-
-
-    }
-
-    public function create_daily_report_json_tables(){
-
-
-        $this->generate_json_table(
-            $this->daily_report_post_type,
-            self::$daily_report_key,
-            $this->daily_report_path);
-
-        $this->generate_json_table(
-            $this->team_report_post_type,
-            self::$team_report_key,
-            $this->team_report_path);
-
-        $this->generate_json_table(
-            $this->project_report_post_type,
-            self::$project_report_key,
-            $this->project_report_path);
-
-        $this->generate_json_table(
-            $this->user_report_post_type,
-            self::$user_report_key,
-            $this->user_report_path);
-    }
-
-}
 function break_time( $break, $lunch ) {
     $break_time  = $break;
     $lunch_time  = $lunch;
@@ -236,23 +147,21 @@ function foreman_daily_form_func() {
 
 
     // POST_META ( PROJECT_DAILY_FORM )
-    $oldProgress = (int) get_field( 'project_completed', $fd['project-id'] );
-    $newProgress = $fd['percentage-completed'] + $oldProgress;
+    $oldProgress = (float) get_field( 'project_completed', $fd['project-id'] );
 
-    if ( update_field( 'project_completed', number_format($newProgress), $fd['project-id'] ) ) {
+    $percent_completed_today = (float) $fd['percentage-completed'];
+    $percent_completed_today_format = number_format($percent_completed_today, 2);
+
+    $newProgress = $percent_completed_today + $oldProgress;
+    $newProgress_float_format = number_format($newProgress, 2);
+
+    $today_points_float = (float) $fd['team-points'];
+    $today_points_float_format = number_format($today_points_float, 2);
+
+    if ( update_field( 'project_completed', $newProgress_float_format, $fd['project-id'] ) ) {
 
         // get team data
         $foreman = get_field( 'labor_select_foreman', $fd['team-id'] );
-
-        $data = [
-            'date'              => $date_time,
-            'project-id'        => $fd['project-id'],
-            'project-name'      => get_the_title( $fd['project-id'] ),
-            'team-id'           => $fd['team-id'],
-            'team-name'         => get_the_title( $fd['team-id'] ),
-            'progress'          => number_format($fd['percentage-completed']),
-            'points'            => number_format($fd['team-points'])
-        ];
 
 
         // ****************************************
@@ -268,8 +177,8 @@ function foreman_daily_form_func() {
                 'project_name'  => get_the_title( $fd['project-id'] ),
                 'team_id' => $fd['team-id'],
                 'team_name' => get_the_title( $fd['team-id'] ),
-                'percent' => number_format($fd['percentage-completed']),
-                'points' => number_format($fd['team-points'])
+                'percent' => $percent_completed_today,
+                'points' => $today_points_float_format
             )
         );
 
@@ -278,7 +187,7 @@ function foreman_daily_form_func() {
         }
 
         // ****************************************
-        // PROJECT - SAVE TO PROJECT META DATA
+        // PROJECT - SAVE TASKS TO PROJECT META DATA
         // ****************************************
 
         foreach ( $fd as $field_name => $field_value ) {
@@ -308,19 +217,6 @@ function foreman_daily_form_func() {
         $member_names[] = get_user_by( 'id', $user['user-id'] )->display_name;
     }
 
-    $data = [
-        'date'          => $date_time,
-        'team-id'       => $fd['team-id'],
-        'team-name'     => get_the_title( $fd['team-id'] ),
-        'project-id'    => $fd['project-id'],
-        'project-name'  => get_the_title( $fd['project-id'] ),
-        'progress'      => number_format($fd['percentage-completed']),
-        'points'        => number_format($fd['team-points']),
-        'foreman-id'    => $foreman['ID'],
-        'foreman-name'  => $foreman['display_name'],
-        'member-ids'    => implode( ', ', $member_ids ),
-        'members'       => implode( ', ', $member_names )
-    ];
 
     // **********************************
     // TEAM - SAVE TO TEAM REPORTS TABLE
@@ -338,8 +234,8 @@ function foreman_daily_form_func() {
             'project_name'  => get_the_title( $fd['project-id'] ),
             'foreman_id'    => $foreman['ID'],
             'foreman_name'  => $foreman['display_name'],
-            'percent'       => number_format($fd['percentage-completed']),
-            'points'        => number_format($fd['team-points']),
+            'percent'       => $percent_completed_today,
+            'points'        => $today_points_float_format,
             'member_ids'    => implode( ', ', $member_ids ),
             'members'       => implode( ', ', $member_names )
         )
@@ -352,25 +248,8 @@ function foreman_daily_form_func() {
 
     // USER_META ( WORKER_DAILY_FORM )
     foreach ( $users as $user ) {
-        $data = [
-            'date'                  => $date_time,
-            'user-id'               => $user['user-id'],
-            'user-name'             => get_user_by( 'id', $user['user-id'] )->display_name,
-            'points'                => number_format($user['daily-points']),
-            'start-time'            => $user['start-time'],
-            'break-time'            => $user['break-time'],
-            'lunch-time'            => $user['lunch-time'],
-            'finish-time'           => $user['finish-time'],
-            'hours-worked'          => cal_hours_worked( $user['start-time'], $user['finish-time'] ),
-            'leadership'            => $user['leadership'],
-            'leadership-notes'      => $user['leadership-notes'],
-            'trust'                 => $user['trust'],
-            'trust-notes'           => $user['trust-notes'],
-            'safety'                => $user['safety'],
-            'safety-notes'          => $user['safety-notes'],
-            'quality'               => $user['quality'],
-            'quality-notes'         => $user['quality-notes']
-        ];
+
+        $user_points = (float) $user['daily-points'];
 
         // **********************************
         // USER - SAVE TO USER REPORTS TABLE
@@ -384,7 +263,7 @@ function foreman_daily_form_func() {
                 'date'          => $date_time,
                 'user_id'       => $user['user-id'],
                 'user_name'     => get_user_by( 'id', $user['user-id'] )->display_name,
-                'points'        => number_format($fd['team-points']),
+                'points'        => number_format($user_points, 2),
                 'start_time'       => $user['start-time'],
                 'break'            => $user['break-time'],
                 'lunch'            => $user['lunch-time'],
@@ -424,37 +303,6 @@ function foreman_daily_form_func() {
     }
 
 
-    $data = [
-        'date'              => $date_time,
-        'project-id'        => $fd['project-id'],
-        'project-name'      => get_the_title( $fd['project-id'] ),
-        'foreman-id'        => $foreman['ID'],
-        'foreman-name'      => $foreman['display_name'],
-        'team-id'           => $fd['team-id'],
-        'team-name'         => get_the_title( $fd['team-id'] ),
-        'team-members'      => implode( ', ', $member_names ),
-        'team-points'       => number_format($fd['team-points']),
-        'percent'           => $fd['percentage-completed'],
-        'work-performed'    => $fd['work-performed'],
-        'jha'               => (isset($fd['jha'])) ? 'Yes' : 'No',
-        'hot-work-tomorrow' => $fd['hot-work-tomorrow'],
-        'inspections'       => $fd['inspections'],
-        'weather'           => implode(', ', $weather),
-        'equipment-used'    => $fd['equipment-used'],
-        'tekla'             => (isset($fd['tekla'])) ? 'Yes' : 'No',
-        'other-conditions'  => $fd['other-conditions'],
-        'tomorrows-plan'    => $fd['tomorrows-plan'],
-        'productivity'      => $fd['productivity']
-
-    ];
-
-//   $new_daily_report_post = wp_insert_post( [
-//        'post_title'   => 'daily report ' . time(),
-//        'post_type'    => 'daily_reports',
-//        'post_status'  => 'publish',
-//        'post_content' => 'Daily report.',
-//    ] );
-
 
     // ***********************************
     // DAILY - SAVE TO DAILY REPORTS TABLE
@@ -474,8 +322,8 @@ function foreman_daily_form_func() {
             'team_name'     => get_the_title( $fd['team-id'] ),
             'member_ids'    => implode( ', ', $member_ids ),
             'members'       => implode( ', ', $member_names ),
-            'points'        => number_format($fd['team-points']),
-            'percent'       => number_format($fd['percentage-completed']),
+            'points'        => $today_points_float_format,
+            'percent'       => $percent_completed_today_format,
             'work_performed'    => $fd['work-performed'],
             'jha'               => (isset($fd['jha'])) ? 'Yes' : 'No',
             'hot_work_tomorrow' => $fd['hot-work-tomorrow'],
@@ -506,12 +354,3 @@ function foreman_daily_form_func() {
 
 add_action( 'wp_ajax_foreman_daily_form', 'foreman_daily_form_func' );
 
-
-function create_daily_report_json_tables(){
-
-    $jt = new LABOR_Json_Tables();
-
-    $jt->create_daily_report_json_tables();
-
-}
-add_action( 'init', 'create_daily_report_json_tables' );

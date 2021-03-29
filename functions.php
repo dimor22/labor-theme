@@ -80,7 +80,9 @@ function get_project_tasks_func() {
         while (have_rows('project_tasks', $project_id)) {
             the_row();
             $task_name = get_sub_field('project_task_name');
-            $task_total = get_sub_field('project_task_count');
+            $task_total_count = get_sub_field('project_task_count');
+            $task_total_hours = get_sub_field('project_task_hours');
+            $task_unit_hours = round($task_total_hours / $task_total_count, 2);
             $task_ttd = get_post_meta($project_id, "task_ttd_" . strtolower(str_replace(" ", "-", $task_name)), true);
 
             $project_tasks[] = [
@@ -88,8 +90,9 @@ function get_project_tasks_func() {
                 'projectName' => 'title placeholder',
                 'taskList'  => [
                     'name' => $task_name,
-                    'total' => $task_total,
-                    'ttd'   => $task_ttd != false ? $task_ttd : 0
+                    'total' => $task_total_count,
+                    'ttd'   => $task_ttd != false ? $task_ttd : 0,
+                    'hours' => $task_unit_hours
                 ]
             ];
         }
