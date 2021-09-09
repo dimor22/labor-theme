@@ -213,7 +213,6 @@ add_action( 'wp_before_admin_bar_render', 'wpb_custom_logo' );
 function add_meta_tags() {
     ?>
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/labor-ico.png"/>
-    <link rel="manifest" href="<?php echo get_home_url(); ?>/manifest.json">
     <meta name="apple-mobile-web-app-title" content="Labor App">
     <link rel="apple-touch-startup-image" href="<?php echo get_home_url(); ?>/launch.png">
     <link rel="apple-touch-icon" href="touch-icon-iphone.png">
