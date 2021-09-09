@@ -137,7 +137,9 @@
 .swiper-container {
   width: 100%;
   max-width: 550px;
-  margin: 0; }
+  margin: 0;
+  overflow: hidden;
+}
 
 .swiper-wrapper {
   height: 79vh; }
